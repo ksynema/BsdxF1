@@ -1272,10 +1272,7 @@ document.getElementById("raceFilter").addEventListener("change", (e) => {
 });
 
 // 🧠 RENDER
-function render() {
-  if (!data[year]) return;
-  let current = data[year][activeTab];
-	function updateFilterOptions() {
+		function updateFilterOptions() {
   const select = document.getElementById("raceFilter");
   let options = `<option value="all">All</option>`;
 
@@ -1304,6 +1301,10 @@ function render() {
 
   select.innerHTML = options;
 }
+function render() {
+  if (!data[year]) return;
+  let current = data[year][activeTab];
+
 
   // filtr tylko dla races
  if (selectedRace !== "all") {
@@ -1364,7 +1365,7 @@ function render() {
 
     current.forEach(d => {
       html += `<tr>
-	    <td>${d.position}</td>
+	    <td>${d.pos}</td>
         <td style="display:flex;align-items:center;gap:10px;">
           <img src="${d.img}" style="width:30px;height:30px;border-radius:50%;">
           ${d.name}
@@ -1386,7 +1387,7 @@ function render() {
 
     current.forEach(t => {
       html += `<tr>
-	    <td>${t.position}</td>
+	    <td>${t.pos}</td>
         <td>${t.name}</td>
         <td>${t.pts}</td>
       </tr>`;
