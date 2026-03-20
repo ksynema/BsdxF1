@@ -1250,14 +1250,19 @@ document.querySelectorAll(".tabs button").forEach(btn => {
     btn.classList.add("active");
 
     activeTab = btn.dataset.tab;
-    render();
+selectedRace = "all";
+updateFilterOptions();
+render();
   });
 });
 
 // 📅 YEAR
 document.getElementById("year").addEventListener("change", (e) => {
   year = e.target.value;
-  render();
+selectedRace = "all";
+updateFilterOptions();
+render();
+renderRaceCards();
 });
 
 // 🏁 FILTER
@@ -1270,11 +1275,50 @@ document.getElementById("raceFilter").addEventListener("change", (e) => {
 function render() {
   if (!data[year]) return;
   let current = data[year][activeTab];
+	function updateFilterOptions() {
+  const select = document.getElementById("raceFilter");
+  let options = `<option value="all">All</option>`;
+
+  let current = data[year][activeTab];
+
+  if (activeTab === "races") {
+    let races = [...new Set(current.map(r => r.gp))];
+    races.forEach(r => {
+      options += `<option value="${r}">${r}</option>`;
+    });
+  }
+
+  if (activeTab === "drivers") {
+    let drivers = [...new Set(current.map(d => d.name))];
+    drivers.forEach(d => {
+      options += `<option value="${d}">${d}</option>`;
+    });
+  }
+
+  if (activeTab === "teams") {
+    let teams = [...new Set(current.map(t => t.name))];
+    teams.forEach(t => {
+      options += `<option value="${t}">${t}</option>`;
+    });
+  }
+
+  select.innerHTML = options;
+}
 
   // filtr tylko dla races
-  if (activeTab === "races" && selectedRace !== "all") {
+ if (selectedRace !== "all") {
+  if (activeTab === "races") {
     current = current.filter(r => r.gp === selectedRace);
   }
+
+  if (activeTab === "drivers") {
+    current = current.filter(d => d.name === selectedRace);
+  }
+
+  if (activeTab === "teams") {
+    current = current.filter(t => t.name === selectedRace);
+  }
+}
 
   // 🧾 TYTUŁ
   let title = selectedRace === "all"
@@ -1402,6 +1446,7 @@ function renderRaceCards() {
 }
 
 // 🚀 START
+updateFilterOptions();
 render();
 
 
