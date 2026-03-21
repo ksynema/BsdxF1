@@ -677,6 +677,31 @@ html, body {
   margin: 40px auto;
   padding: 20px;
 }
+	.podium {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  flex: 1;
+  padding: 30px;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.first {
+  background: linear-gradient(90deg, #00c6a7, #1de9b6);
+}
+
+.second {
+  background: linear-gradient(90deg, #009688, #00bfa5);
+}
+
+.third {
+  background: linear-gradient(90deg, #b71c1c, #ff1744);
+}
 </style>
 </head>
 <body>
@@ -1161,90 +1186,82 @@ html, body {
 <!-- 🔹 NOWA SEKCJA – STANDINGS -->
 <div class="standings-section">
 
+  <!-- TABS -->
   <div class="sub-menu">
     <button class="tab active" data-tab="drivers">Drivers</button>
     <button class="tab" data-tab="teams">Teams</button>
   </div>
 
+  <!-- 🔹 DRIVERS -->
   <div id="drivers" class="tab-content active">
-    <!-- TUTAJ TWOJA TABELA -->
-	  <div class="table">
-    <div class="row header">
-      <div>#</div>
-      <div>Driver</div>
-      <div>Team</div>
-      <div>Wins</div>
-      <div>Pts</div>
+
+    <!-- PODIUM DRIVERS -->
+    <div class="podium">
+      <div class="card second">2ND</div>
+      <div class="card first">1ST</div>
+      <div class="card third">3RD</div>
     </div>
 
-    <div class="row">
-      <div>1</div>
-      <div>Verstappen</div>
-      <div>Red Bull</div>
-      <div>10</div>
-      <div>350</div>
-    </div>
+    <!-- TABELA DRIVERS -->
+    <div class="table">
+      <div class="row header">
+        <div>#</div><div>Driver</div><div>Team</div><div>Wins</div><div>Pts</div>
+      </div>
 
-    <div class="row">
-      <div>2</div>
-      <div>Leclerc</div>
-      <div>Ferrari</div>
-      <div>5</div>
-      <div>280</div>
+      <div class="row">
+        <div>1</div><div>Verstappen</div><div>Red Bull</div><div>10</div><div>350</div>
+      </div>
     </div>
 
   </div>
 
-  </div>
 
+  <!-- 🔹 TEAMS -->
   <div id="teams" class="tab-content">
-    <!-- TUTAJ TABELA TEAMÓW -->
-	  <div class="table">
-    <div class="row header">
-      <div>#</div>
-      <div>Team</div>
-      <div>Points</div>
-      <div></div>
-      <div></div>
+
+    <!-- PODIUM TEAMS -->
+    <div class="podium">
+      <div class="card second">Ferrari</div>
+      <div class="card first">Mercedes</div>
+      <div class="card third">McLaren</div>
     </div>
 
-    <div class="row">
-      <div>1</div>
-      <div>Red Bull</div>
-      <div>600</div>
-      <div></div>
-      <div></div>
-    </div>
+    <!-- TABELA TEAMS -->
+    <div class="table">
+      <div class="row header">
+        <div>#</div><div>Team</div><div>Points</div>
+      </div>
 
-  </div>
+      <div class="row">
+        <div>1</div><div>Mercedes</div><div>98</div>
+      </div>
+    </div>
 
   </div>
 
 </div>
+		</div>
+  </div>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
   const tabs = document.querySelectorAll(".tab");
-  const contents = document.querySelectorAll(".tab-content");
+const contents = document.querySelectorAll(".tab-content");
 
-  if (tabs.length === 0) return; // zabezpieczenie
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    const target = tab.dataset.tab;
 
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      const target = tab.dataset.tab;
+    tabs.forEach(t => t.classList.remove("active"));
+    contents.forEach(c => c.classList.remove("active"));
 
-      tabs.forEach(t => t.classList.remove("active"));
-      contents.forEach(c => c.classList.remove("active"));
-
-      tab.classList.add("active");
-
-      const content = document.getElementById(target);
-      if (content) content.classList.add("active");
-    });
+    tab.classList.add("active");
+    document.getElementById(target).classList.add("active");
   });
-
 });
 </script>
+		
 </body>
+	
 	
 </html>
