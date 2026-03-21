@@ -1,9 +1,1322 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="pl">
 
-<h1>Osaka engeniering</h1>
-<p>My first paragraph.</p>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Driver Profile</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+  nav.menu-bar {
+  background-color: #0c0f1f; 
+  width: 100%;
+  padding: 10px 0;
+}
+
+
+
+nav.menu-bar ul {
+  display: flex;
+  flex-direction: row;        
+  justify-content: flex-start; 
+  align-items: center; 
+  gap: 30px; /* odstęp między wszystkimi przyciskami */ 
+  padding-left: 50px;  /* odsunięcie całej grupy przycisków od lewej krawędzi */  
+  margin: 0;
+  list-style: none; 
+}
+nav.menu-bar ul li {
+  position: relative; 
+  
+}
+nav.menu-bar ul li a {
+  display: block;
+  color: white;             /* zmiana koloru tekstu */
+  font-size: 16px;          /* wielkość czcionki */
+  font-weight: bold;        /* pogrubienie */
+  font-family: Palatino Linotype, sans-serif; /* rodzaj czcionki */
+  text-transform: uppercase; /* wielkie litery */
+  letter-spacing: 1px;      /* odstępy między literami */
+  text-align: center; 
+  text-align: center;
+  padding: 24px 16px;
+  text-decoration: none;
+}
+nav.menu-bar ul li a:hover {
+  background-color: #0c0f1f; /* tło przy najechaniu */
+  
+}
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Palatino Linotype', sans-serif;
+}
+/* wszystkie linki jako przyciski */
+a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px 8px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* efekt kliknięcia */
+a:active {
+  transform: scale(0.95);
+
+}
+body {
+  margin: 0;       /* usuwa domyślne marginesy */
+  padding: 0;
+  background-color: #0c0f1f; /* wybierz swój kolor */
+    margin: 0;
+  padding: 0;
+  background-image: url('https://example.com/obrazek.jpg');
+  background-size: cover;      /* dopasowanie do całego ekranu */
+  background-repeat: no-repeat; 
+  background-position: center; /* centrowanie obrazka */
+}
+
+h2, p {
+  margin: 10px;
+}
+
+.race-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.race-card{
+  position: relative;
+  border-radius: 12px;
+  
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  height: 250px;
+
+}
+
+.race-card img{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.race-card:hover img{
+  transform: scale(1.05);
+}
+.race-card::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.2)
+  );
+}
+.race-info{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  z-index: 2;
+}
+.round{
+  font-size: 12px;
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+
+.country{
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.date{
+  font-size: 14px;
+  margin-top: 5px;
+}
+.race-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.schedule-footer{
+  margin-top: 20px;
+}
+
+.schedule-btn{
+  display: inline-block;
+  padding: 6px 15px;
+
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 12px;
+
+  border: 2px solid white;
+  border-radius: 30px;
+
+  transition: all 0.3s ease;
+}
+.schedule-btn:hover{
+  background-color: white;
+  color: #0c0f1f;
+}
+.news-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.news-card{
+  position: relative;
+  border-radius: 12px;
+  
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  height: 250px;
+
+}
+
+.news-card img{
+  width: 120%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.news-card:hover img{
+  transform: scale(1.05);
+}
+.news-card::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.2)
+  );
+}
+.news-info{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  z-index: 2;
+}
+
+
+
+
+/* wspólne dla wszystkich dropdownów */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  background-color: #0c0f1f;
+  flex-wrap: wrap; 
+  gap: 10px;
+  padding: 20px 20px;
+  z-index: 10;
+  box-sizing: border-box;
+  
+}
+/* Schedule: 3 kolumny */
+.dropdown-content.schedule{
+  display: none;
+  position: fixed;
+  top: 120px;
+  left: 0;
+  width: 100vw;
+
+  background-color: #0c0f1f;
+  padding: 60px 100px;
+  box-sizing: border-box;
+}
+
+
+/* Results: 2 kolumny */
+.dropdown-content.results {
+  position: fixed;
+  top: 120px;
+  left: 0;
+  width: 100vw;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 30px;
+  background-color: #0c0f1f;
+  box-sizing: border-box;
+  z-index: 10;
+  }
+.dropdown-content.results div {
+  width: 250px;            /* 4 elementy na rząd */
+ 
+  text-align: center;
+  padding: 10px;
+  color: white;
+  box-sizing: border-box; /* uwzględnia padding w szerokości */
+
+}
+
+/* News: 3 kolumny */
+/* News: poprawiona wersja */
+.dropdown-content.news {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  gap: 25px;
+  position: fixed;
+  top: 120px;
+  left: 0;
+  width: 100vw;
+  padding: 10px 30px;
+  background-color: #0c0f1f;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.dropdown-content.news .news-card,
+.dropdown-content.news .news-btn {
+  background-color: #0c0f1f;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.dropdown-content.news .news-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Drivers: 2 kolumny */
+.dropdown-content.drivers {
+  position: fixed;
+  top: 120px;
+  left: 0;
+  width: 100vw;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 30px;
+  background-color: #0c0f1f;
+  box-sizing: border-box;
+  z-index: 10;
+  
+}
+.dropdown-content.drivers div {
+
+  width: 275px;            /* 4 elementy na rząd */
+  
+  text-align: center;
+  padding: 10px;
+  color: white;
+  box-sizing: border-box; /* uwzględnia padding w szerokości */
+
+}
+
+/* Teams: 2 kolumny */
+.dropdown-content.teams {
+  position: fixed;
+  top: 120px;
+  left: 0;
+  width: 100vw;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 30px;
+  background-color: #0c0f1f;
+  box-sizing: border-box;
+  z-index: 10;
+  }
+.dropdown-content.teams div {
+ 
+  width: 275px;            /* 4 elementy na rząd */
+  
+  text-align: center;
+  padding: 10px;
+  color: white;
+  box-sizing: border-box; /* uwzględnia padding w szerokości */
+
+}
+.driver-item a{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* tekst zaczyna się od lewej */
+  gap: 20px;
+  text-align: right;  /* usuwa centrowanie */
+  text-decoration: none;
+  color: white;
+  padding: 10px 10px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.driver-img{
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.driver-item a:hover{
+  background-color: #1a2a4a;
+}
+.driver-name{
+  position: fixed;
+   justify-content: flex-start; /* tekst zaczyna się od lewej */
+  
+  text-align: right;  /* usuwa centrowanie */
+  border-radius: 15px;
+  font-size: 12.5px;
+  letter-spacing: 0.5px;
+}
+.driver-item a:hover{
+  background-color: #16213e;
+  color: #0c0f1f;
+}
+
+.dropdown-content div img {
+  width: 20%;
+  height: auto;
+}
+
+.dropdown-content a {
+  color: black;
+  text-decoration: none;
+}
+
+
+
+/* ALE dla Schedule nadpisujemy */
+.dropdown:hover .dropdown-content.schedule {
+  display: block;
+}
+
+.dropdown img {
+  display: block;
+
+}
+.dropdown:hover .dropdown-content.results {
+  display: flex; /* lub block w zależności od układu */
+  flex-wrap: wrap;
+}
+
+/* News */
+.dropdown:hover .dropdown-content.news {
+  display: grid; /* grid dla news */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Drivers i Teams analogicznie */
+.dropdown:hover .dropdown-content.drivers{
+  display: flex;
+  flex-wrap: wrap;
+  }
+
+
+.dropdown:hover .dropdown-content.teams {
+  display: flex;
+  flex-wrap: wrap;
+  }
+body {
+  background: #0d0f1a;
+  color: white;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+  background: linear-gradient(90deg, #FFBF00, #F9E897);
+}
+
+.hero-text h1 {
+  font-size: 60px;
+  font-weight: 800;
+}
+
+.hero-text h3 {
+  font-size: 24px;
+  font-style: italic;
+}
+
+.hero-text p {
+  margin: 15px 0;
+  opacity: 0.8;
+}
+
+.hero button {
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.hero-img img {
+  height: 350px;
+}
+
+/* STATS */
+.stats {
+  padding: 50px;
+}
+
+.stats h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.stats-container {
+  display: flex;
+  gap: 40px;
+}
+
+.season {
+  flex: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.grid div {
+  background: #161a2b;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.grid span {
+  display: block;
+  opacity: 0.7;
+}
+
+.grid strong {
+  font-size: 22px;
+}
+
+/* CAREER */
+.career {
+  flex: 1;
+}
+
+.career-box {
+  background: #2a2f3f;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.career-box p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+/* BIO */
+.bio {
+  padding: 50px;
+}
+
+.bio h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.bio-info {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 30px;
+}
+
+.bio-text {
+  max-width: 600px;
+  line-height: 1.6;
+}
+.top-bar {
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 40px;
+  font-size: 14px;
+}
+
+.top-bar .left span {
+  margin-right: 15px;
+  opacity: 0.7;
+}
+
+.top-bar .right span {
+  margin-left: 20px;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111322;
+  padding: 15px 40px;
+  border-bottom: 2px solid #222;
+}
+
+.nav-center a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-center a:hover {
+  color: #e10600; /* F1 red */
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.sign-in {
+  background: black;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.subscribe {
+  background: #e10600;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+body {
+  padding-top: 180px; /* dopasujemy za chwilę */
+}
+/* HERO */
+.team-hero {
+  text-align: center;
+  padding: 60px;
+  background: linear-gradient(90deg,#0077b6,#00b4d8);
+}
+
+.team-car {
+  width: 80%;
+  max-width: 900px;
+}
+
+.team-hero h1 {
+  font-size: 60px;
+  margin: 20px 0;
+}
+
+.drivers {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.shop-btn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  border-radius: 25px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+}
+
+
+/* DRIVERS */
+.drivers-section {
+  padding: 50px;
+}
+
+.drivers-grid {
+  display: flex;
+  gap: 30px;
+}
+
+.driver-card {
+  flex: 1;
+  background: #161a2b;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+
+/* STATS */
+.stats-section {
+  display: flex;
+  gap: 40px;
+  padding: 50px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.stats-grid div {
+  background: #161a2b;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.team-summary {
+  background: #2a2f3f;
+  padding: 30px;
+  border-radius: 12px;
+  flex: 1;
+}
+
+.team-summary p {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* PROFILE */
+.team-profile {
+  padding: 50px;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 30px;
+}
+
+.profile-grid div {
+  background: #161a2b;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.team-desc {
+  margin-top: 30px;
+  max-width: 800px;
+  opacity: 0.8;
+}
+</style>
+</head>
+<body>
+<div class="fixed-header">
+<nav class="navbar">
+  <div class="nav-left">
+   <a href="#" onclick="openSeries()">Race Series ▼</a>
+    <a href="#" onclick="openSeries()">Race Series ▼</a>
+  </div>
+
+  <div class="nav-center">
+    <a href="#" onclick="navigate('auth')">AUTHENTICS</a>
+    <a href="#" onclick="navigate('store')">STORE</a>
+    <a href="#" onclick="navigate('tickets')">TICKETS</a>
+    <a href="#" onclick="navigate('hospitality')">HOSPITALITY</a>
+    <a href="#" onclick="navigate('experiences')">EXPERIENCES</a>
+  </div>
+
+  <div class="nav-right">
+    <a href="#" onclick="openF1TV()" class="logo">F1 TV</a>
+    <button class="sign-in" onclick="signIn()">Sign In</button>
+    <button class="subscribe" onclick="subscribe()">Subscribe</button>
+  </div>
+</nav>
+<nav class="menu-bar">
+<ul>
+
+<li class="dropdown">
+  <a href="">Schedule</a>
+
+  <div class="dropdown-content schedule">
+
+    <div class="race-container">
+
+      <div class="race-card">
+        <img src="">
+        <div class="race-info">
+          <div class="round">ROUND 2</div>
+          <div class="country">China</div>
+          <div class="date">13 – 15 MAR</div>
+        </div>
+      </div>
+
+      <div class="race-card">
+        <img src="japan.jpg">
+        <div class="race-info">
+          <div class="round">ROUND 3</div>
+          <div class="country">Japan</div>
+          <div class="date">27 – 29 MAR</div>
+        </div>
+      </div>
+
+      <div class="race-card">
+        <img src="miami.jpg">
+        <div class="race-info">
+          <div class="round">ROUND 4</div>
+          <div class="country">Miami</div>
+          <div class="date">01 – 03 MAY</div>
+        </div>
+      </div>
+
+      <div class="race-card">
+        <img src="canada.jpg">
+        <div class="race-info">
+          <div class="round">ROUND 5</div>
+          <div class="country">Canada</div>
+          <div class="date">22 – 24 MAY</div>
+        </div>
+      </div>
+	  
+     <div class="schedule-footer">
+      <a href="Full Schedule.html" class="schedule-btn">Full Schedule</a>
+     </div>
+    </div>
+
+  </div>
+</li>
+
+
+  
+  <li class="dropdown">
+
+    <a href="">Results</a>
+
+    <div class="dropdown-content results">
+
+      <div class="schedule-footer">
+       <a href="2026 season.html" class="schedule-btn">2026 season</a>
+      </div>
+
+      <div class="schedule-footer">
+       <a href="Driver Standing.html" class="schedule-btn">Driver Standing</a>
+      </div>
+
+      <div class="schedule-footer">
+       <a href="Team standing.html" class="schedule-btn">Team standing</a>
+      </div>
+
+      <div class="schedule-footer">
+       <a href="Archive 1950-2026.html" class="schedule-btn">Archive 1950-2026</a>
+      </div>
+
+      <div class="schedule-footer">
+       <a href="F1 awards.html" class="schedule-btn">F1 awards</a>
+      </div>
+
+    </div>
+
+  </li>
+  
+  
+
+  <li class="dropdown">
+
+    <a href="">News</a>
+
+    <div class="dropdown-content news">
+     
+      
+       <a href="what is f1?.html" class="schedule-btn">what is f1?</a>     
+       <a href="what is f1tv.html" class="schedule-btn">what is f1tv</a>
+       <a href="F1 glossary.html" class="schedule-btn">F1 glossary</a>      
+       <a href="get involved.html" class="schedule-btn">get involved</a>          
+       <a href="2026 regulations.html" class="schedule-btn">2026 regulations</a>
+
+      <div class="news-card">
+        <img src="">
+        <div class="race-info">
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img src="japan.jpg">
+        <div class="news-info">        
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img src="miami.jpg">
+        <div class="news-info">     
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img src="canada.jpg">
+        <div class="news-info">         
+        </div>
+      </div>
+	  
+	   <div class="news-card">
+        <img src="canada.jpg">
+        <div class="news-info">         
+        </div>
+      </div>
+	  
+	  
+     <div class="schedule-footer">
+      <a href="More news.html" class="schedule-btn">More news</a>
+     </div>
+	 
+    </div>
+
+  </li>
+  
+  <li class="dropdown">
+
+    <a href="All drivers.html">Drivers</a>
+
+    <div class="dropdown-content drivers">
+
+      <div class="driver-item">
+        <a href="Gin Akutagawa.html">
+          <img src="Gin_Akutagawa_29.webp" class="driver-img">
+          <span class="driver-name">Gin <strong>Akutagawa</strong>
+		  </span>
+        </a>
+      </div>
+
+      <div class="driver-item">
+        <a href="Ryūnosuke Akutagawa.html">
+		<img src="Ryunosuke_Akutagawa_29.webp" class="driver-img">
+          <span class="driver-name">Ryūnosuke <strong>Akutagawa</strong>
+		  </span>
+        </a>
+      </div>
+	  
+      <div class="driver-item">
+        <a href="Ivan Goncharov.html">
+		<img src="Ivan_Goncharov_29.webp" class="driver-img">
+          <span class="driver-name">Ivan <strong>Goncharov</strong>
+		  </span>
+        </a>
+      </div>
+      <div class="driver-item">
+        <a href="Nikolai Gogol.html">
+		<img src="Nikolai_Gogol_29.webp" class="driver-img">
+          <span class="driver-name">Nikolai <strong>Gogol</strong>
+		  </span>
+        </a>
+      </div>
+      <div class="driver-item">
+        <a href="Nathaniel Hawthorne.html">
+		<img src="Nathaniel_Hawthorne_29.webp" class="driver-img">
+          <span class="driver-name">Nathaniel <strong>Hawthorne</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Kyōka Izumi.html">
+		<img src="Kyoka_Izumi_29.webp" class="driver-img">
+          <span class="driver-name">Kyōka <strong>Izumi</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Saigiku Jōno.html">
+		<img src="Saigiku_Jono_29.webp" class="driver-img">
+          <span class="driver-name">Saigiku <strong>Jōno</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Doppo Kunikida.html">
+		<img src="Doppo_Kunikida_29.webp" class="driver-img">
+          <span class="driver-name">Doppo <strong>Kunikida</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Lucy Montgomery.html">
+		<img src="Lucy_Maud_Montgomery_29.webp" class="driver-img">
+          <span class="driver-name">Lucy <strong>Montgomery</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Yachiyo Murakoso.html">
+		<img src="Murakoso_29.webp" class="driver-img">
+          <span class="driver-name">Yachiyo <strong>Murakoso</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Kenji Miyazawa.html">
+		<img src="Kenji_Miyazawa_29.webp" class="driver-img">
+          <span class="driver-name">Kenji <strong>Miyazawa</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Chūya Nakahara.html">
+		<img src="Chuya_Nakahara_29.webp"class="driver-img">
+          <span class="driver-name">Chūya <strong>Nakahara</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Atsushi Nakajima.html">
+		<img src="Atsushi_Nakajima_29.jpg" class="driver-img">
+          <span class="driver-name">Atsushi <strong>Nakajima</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Teruko Ōkura.html">
+		<img src="Teruko_Okura_29.webp" class="driver-img">
+          <span class="driver-name">Teruko <strong>Ōkura</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Alexander Pushkin.html">
+		<img src="Alexander_Pushkin.webp" class="driver-img">
+          <span class="driver-name">Alexander <strong>Pushkin</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Sigma.html">
+		<img src="Sigma.webp" class="driver-img">
+          <span class="driver-name"> <strong>Sigma</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="John Steinbeck.html">
+		<img src="John_Steinbeck_29.webp" class="driver-img">
+          <span class="driver-name">John <strong>Steinbeck</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Michizō Tachihara.html">
+		<img src="Tachihara\Hunting_Dogs_Tachihara.webp" class="driver-img">
+          <span class="driver-name">Michizō <strong>Tachihara</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Mark Twain.html">
+		<img src="Mark_Twain_29.webp" class="driver-img">
+          <span class="driver-name">Mark <strong>Twain</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Mizuki Tsujimura.html">
+		<img src="Mizuki_Tsujimura_29.webp" class="driver-img">
+          <span class="driver-name">Mizuki <strong>Tsujimura</strong>
+		  </span>
+        </a>
+      </div>
+      <div class="schedule-footer">
+       <a href="All drivers.html" class="schedule-btn">All drivers</a>
+      </div>
+	  <div class="schedule-footer">
+       <a href="Hall of fame.html" class="schedule-btn">Hall of fame</a>
+      </div>
+    </div>
+
+  </li>
+  
+<li class="dropdown">
+
+    <a href="file:///C:/Users/ksyne/OneDrive/Dokumenty/f1Xbsd/All%20teams.html">Teams</a>
+
+    <div class="dropdown-content teams">
+
+      <div class="driver-item">
+        <a href="agency racing limited.html">
+          <img src="C:\Users\ksyne\Downloads\red-bull-rb19-old-3d-model-96a9dc6921.jpg" class="driver-img">
+          <span class="driver-name"><strong>agency racing limited</strong>
+		  </span>
+        </a>
+      </div>
+
+      <div class="driver-item">
+        <a href="balena bianca.html">
+		<img src="C:\Users\ksyne\Downloads\red-bull-rb19-old-3d-model-96a9dc6921.jpg" class="driver-img">
+          <span class="driver-name"><strong>balena bianca</strong>
+		  </span>
+        </a>
+      </div>
+
+      <div class="driver-item">
+        <a href="black lizards f1 team.html">
+		<img src="C:\Users\ksyne\Downloads\red-bull-rb19-old-3d-model-96a9dc6921.jpg" class="driver-img">
+          <span class="driver-name"><strong>black lizards f1 team</strong>
+		  </span>
+        </a>
+      </div>
+
+      <div class="driver-item">
+        <a href="guild mercedes F1 team.html">
+		<img src="C:\Users\ksyne\Downloads\red-bull-rb19-old-3d-model-96a9dc6921.jpg" class="driver-img">
+          <span class="driver-name"><strong>guild mercedes F1 team</strong>
+		  </span>
+        </a>
+      </div>
+
+      <div class="driver-item">
+        <a href="hunting dogs.html">
+		<img src="C:\Users\ksyne\Downloads\red-bull-rb19-old-3d-model-96a9dc6921.jpg" class="driver-img">
+          <span class="driver-name"><strong>hunting dogs</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Osaka engeniering.html"> 
+		<img src="C:\Users\ksyne\Downloads\red-bull-rb19-old-3d-model-96a9dc6921.jpg" class="driver-img">
+          <span class="driver-name"><strong>Osaka engeniering </strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="porto motorsports limited.html">
+		<img src="C:\Users\ksyne\Downloads\red-bull-rb19-old-3d-model-96a9dc6921.jpg" class="driver-img">
+          <span class="driver-name"><strong>porto motorsports limited</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Renault anges limited.html">
+		<img src="C:\Users\ksyne\Downloads\red-bull-rb19-old-3d-model-96a9dc6921.jpg" class="driver-img">
+          <span class="driver-name"><strong>Renault anges limited</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="Special Division F1 team.html">
+		<img src="C:\Users\ksyne\Downloads\red-bull-rb19-old-3d-model-96a9dc6921.jpg" class="driver-img">
+          <span class="driver-name"><strong>Special Division F1 team</strong>
+		  </span>
+        </a>
+      </div>
+	  <div class="driver-item">
+        <a href="versements.html">
+		<img src="C:\Users\ksyne\Downloads\red-bull-rb19-old-3d-model-96a9dc6921.jpg" class="driver-img">
+          <span class="driver-name"><strong>versements</strong>
+		  </span>
+        </a>
+      </div>
+      <div class="schedule-footer">
+       <a href="All teams.html" class="schedule-btn">All teams</a>
+      </div>
+    </div>
+
+   </li>
+ </ul>
+</nav>
+
+<div class="top-bar">
+  <div class="left">
+    <span>R03 | 27–29 MAR</span>
+    <strong>🇯🇵 Japan</strong>
+  </div>
+
+  <div class="right">
+    <span>MY TIME 19:24</span>
+    <span>TRACK TIME 03:24</span>
+  </div>
+</div>
+</div>
+<!-- HERO TEAM -->
+<section class="team-hero">
+  <img src="alpine-car.png" class="team-car">
+
+  <h1>ALPINE</h1>
+  <p class="drivers">
+    Pierre Gasly | Franco Colapinto
+  </p>
+
+  <button class="shop-btn">Shop now</button>
+</section>
+
+
+<!-- DRIVERS -->
+<section class="drivers-section">
+  <h2>DRIVERS</h2>
+
+  <div class="drivers-grid">
+    <div class="driver-card">
+      <h3>Pierre Gasly</h3>
+      <p>Alpine</p>
+      <span>#10</span>
+    </div>
+
+    <div class="driver-card">
+      <h3>Franco Colapinto</h3>
+      <p>Alpine</p>
+      <span>#43</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- STATS + SUMMARY -->
+<section class="stats-section">
+  
+  <div class="season-stats">
+    <h2>2026 SEASON</h2>
+
+    <div class="stats-grid">
+      <div><span>Season Position</span><strong>7th</strong></div>
+      <div><span>Season Points</span><strong>10</strong></div>
+      <div><span>Grand Prix Races</span><strong>2</strong></div>
+      <div><span>Grand Prix Points</span><strong>10</strong></div>
+      <div><span>Wins</span><strong>0</strong></div>
+      <div><span>Podiums</span><strong>0</strong></div>
+      <div><span>Poles</span><strong>0</strong></div>
+      <div><span>Top 10s</span><strong>3</strong></div>
+    </div>
+  </div>
+
+  <div class="team-summary">
+    <h2>TEAM SUMMARY</h2>
+
+    <p>Grand Prix Entered <span>394</span></p>
+    <p>Team Points <span>2010</span></p>
+    <p>Highest Race Finish <span>1 (x21)</span></p>
+    <p>Podiums <span>60</span></p>
+    <p>Highest Grid Position <span>1 (x20)</span></p>
+  </div>
+
+</section>
+
+
+<!-- TEAM PROFILE -->
+<section class="team-profile">
+  <h2>TEAM PROFILE</h2>
+
+  <div class="profile-grid">
+    <div>
+      <span>Full Team Name</span>
+      <strong>BWT Alpine Formula One Team</strong>
+    </div>
+
+    <div>
+      <span>Base</span>
+      <strong>Enstone, United Kingdom</strong>
+    </div>
+
+    <div>
+      <span>Team Chief</span>
+      <strong>Flavio Briatore</strong>
+    </div>
+
+    <div>
+      <span>Technical Chief</span>
+      <strong>David Sanchez</strong>
+    </div>
+
+    <div>
+      <span>Chassis</span>
+      <strong>A526</strong>
+    </div>
+
+    <div>
+      <span>Power Unit</span>
+      <strong>Mercedes</strong>
+    </div>
+
+    <div>
+      <span>First Team Entry</span>
+      <strong>1986</strong>
+    </div>
+
+    <div>
+      <span>Reserve Driver</span>
+      <strong>Jack Doohan, Paul Aron, Kush Maini</strong>
+    </div>
+  </div>
+
+  <p class="team-desc">
+    Alpine may be a relatively new name to Formula 1, but Renault’s motorsport
+    heritage runs deep. The 2021 rebrand marked the next step in their F1 revival...
+  </p>
+</section>
+<script>
+
+// ZEGAR
+function updateClock() {
+  const now = new Date();
+
+  // lokalny czas użytkownika
+  const myTime = now.toLocaleTimeString('pl-PL', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+
+  // czas toru (np. Japonia = UTC+9)
+  const trackTime = new Date(
+    now.toLocaleString("en-US", { timeZone: "Asia/Tokyo" })
+  ).toLocaleTimeString('pl-PL', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+
+  document.getElementById("myTime").textContent = myTime;
+  document.getElementById("trackTime").textContent = trackTime;
+}
+
+// odświeżanie co sekundę
+setInterval(updateClock, 1000);
+updateClock();
+
+
+// PRZYCISKI
+function signIn() {
+  alert("Przekierowanie do logowania...");
+  // window.location.href = "/login.html";
+}
+
+function subscribe() {
+  alert("Przechodzisz do subskrypcji 🚀");
+  // window.location.href = "/subscribe.html";
+}
+
+</script>
 
 </body>
 </html>
