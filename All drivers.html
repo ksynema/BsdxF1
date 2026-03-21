@@ -96,13 +96,11 @@
       opacity: 0.8;
     }
 
-    .driver-img {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      height: 100%;
-      object-fit: cover;
-    }
+   .driver-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
 
     @media (max-width: 768px) {
       .grid {
@@ -622,6 +620,35 @@ html, body {
   height: auto;
   overflow-y: auto;
 }
+	  .driver-img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 110%;
+  width: auto;
+  object-fit: contain;
+  z-index: 1;
+  pointer-events: none;
+}
+	  .card {
+  position: relative;
+  overflow: hidden;
+}
+	  .card-content {
+  position: relative;
+  z-index: 2;
+}
+	  .card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.0)
+  );
+  z-index: 1;
+}
 
 </style>
 </head>
@@ -795,7 +822,7 @@ html, body {
 
       <div class="driver-item">
         <a href="Gin Akutagawa.html">
-          <img src="Gin_Akutagawa_29.webp" class="driver-img">
+          <img src="Gin_Akutagawa_29.webp" class="driver-avatar">
           <span class="driver-name">Gin <strong>Akutagawa</strong>
 		  </span>
         </a>
@@ -803,7 +830,7 @@ html, body {
 
       <div class="driver-item">
         <a href="Ryūnosuke Akutagawa.html">
-		<img src="Ryunosuke_Akutagawa_29.webp" class="driver-img">
+		<img src="Ryunosuke_Akutagawa_29.webp" class="driver-avatar">
           <span class="driver-name">Ryūnosuke <strong>Akutagawa</strong>
 		  </span>
         </a>
@@ -811,126 +838,126 @@ html, body {
 	  
       <div class="driver-item">
         <a href="Ivan Goncharov.html">
-		<img src="Ivan_Goncharov_29.webp" class="driver-img">
+		<img src="Ivan_Goncharov_29.webp" class="driver-avatar">
           <span class="driver-name">Ivan <strong>Goncharov</strong>
 		  </span>
         </a>
       </div>
       <div class="driver-item">
         <a href="Nikolai Gogol.html">
-		<img src="Nikolai_Gogol_29.webp" class="driver-img">
+		<img src="Nikolai_Gogol_29.webp" class="driver-avatar">
           <span class="driver-name">Nikolai <strong>Gogol</strong>
 		  </span>
         </a>
       </div>
       <div class="driver-item">
         <a href="Nathaniel Hawthorne.html">
-		<img src="Nathaniel_Hawthorne_29.webp" class="driver-img">
+		<img src="Nathaniel_Hawthorne_29.webp" class="driver-avatar">
           <span class="driver-name">Nathaniel <strong>Hawthorne</strong>
 		  </span>
         </a>
       </div>
 	  <div class="driver-item">
         <a href="Kyōka Izumi.html">
-		<img src="Kyoka_Izumi_29.webp" class="driver-img">
+		<img src="Kyoka_Izumi_29.webp" class="driver-avatar">
           <span class="driver-name">Kyōka <strong>Izumi</strong>
 		  </span>
         </a>
       </div>
 	  <div class="driver-item">
         <a href="Saigiku Jōno.html">
-		<img src="Saigiku_Jono_29.webp" class="driver-img">
+		<img src="Saigiku_Jono_29.webp" class="driver-avatar">
           <span class="driver-name">Saigiku <strong>Jōno</strong>
 		  </span>
         </a>
       </div>
 	  <div class="driver-item">
         <a href="Doppo Kunikida.html">
-		<img src="Doppo_Kunikida_29.webp" class="driver-img">
+		<img src="Doppo_Kunikida_29.webp" class="driver-avatar">
           <span class="driver-name">Doppo <strong>Kunikida</strong>
 		  </span>
         </a>
       </div>
 	  <div class="driver-item">
         <a href="Lucy Montgomery.html">
-		<img src="Lucy_Maud_Montgomery_29.webp" class="driver-img">
+		<img src="Lucy_Maud_Montgomery_29.webp" class="driver-avatar">
           <span class="driver-name">Lucy <strong>Montgomery</strong>
 		  </span>
         </a>
       </div>
 	  <div class="driver-item">
         <a href="Yachiyo Murakoso.html">
-		<img src="Murakoso_29.webp" class="driver-img">
+		<img src="Murakoso_29.webp" class="driver-avatar">
           <span class="driver-name">Yachiyo <strong>Murakoso</strong>
 		  </span>
         </a>
       </div>
 	  <div class="driver-item">
         <a href="Kenji Miyazawa.html">
-		<img src="Kenji_Miyazawa_29.webp" class="driver-img">
+		<img src="Kenji_Miyazawa_29.webp" class="driver-avatar">
           <span class="driver-name">Kenji <strong>Miyazawa</strong>
 		  </span>
         </a>
       </div>
 	  <div class="driver-item">
         <a href="Chūya Nakahara.html">
-		<img src="Chuya_Nakahara_29.webp"class="driver-img">
+		<img src="Chuya_Nakahara_29.webp"  class="driver-avatar">
           <span class="driver-name">Chūya <strong>Nakahara</strong>
 		  </span>
         </a>
       </div>
 	  <div class="driver-item">
         <a href="Atsushi Nakajima.html">
-		<img src="Atsushi_Nakajima_29.jpg" class="driver-img">
+		<img src="Atsushi_Nakajima_29.jpg" class="driver-avatar">
           <span class="driver-name">Atsushi <strong>Nakajima</strong>
 		  </span>
         </a>
       </div>
 	  <div class="driver-item">
         <a href="Teruko Ōkura.html">
-		<img src="Teruko_Okura_29.webp" class="driver-img">
+		<img src="Teruko_Okura_29.webp" class="driver-avatar">
           <span class="driver-name">Teruko <strong>Ōkura</strong>
 		  </span>
         </a>
       </div>
 	  <div class="driver-item">
         <a href="Alexander Pushkin.html">
-		<img src="Alexander_Pushkin.webp" class="driver-img">
+		<img src="Alexander_Pushkin.webp" class="driver-avatar">
           <span class="driver-name">Alexander <strong>Pushkin</strong>
 		  </span>
         </a>
       </div>
 	  <div class="driver-item">
         <a href="Sigma.html">
-		<img src="Sigma.webp" class="driver-img">
+		<img src="Sigma.webp" class="driver-avatar">
           <span class="driver-name"> <strong>Sigma</strong>
 		  </span>
         </a>
       </div>
 	  <div class="driver-item">
         <a href="John Steinbeck.html">
-		<img src="John_Steinbeck_29.webp" class="driver-img">
+		<img src="John_Steinbeck_29.webp" class="driver-avatar">
           <span class="driver-name">John <strong>Steinbeck</strong>
 		  </span>
         </a>
       </div>
 	  <div class="driver-item">
         <a href="Michizō Tachihara.html">
-		<img src="Tachihara\Hunting_Dogs_Tachihara.webp" class="driver-img">
+		<img src="Tachihara\Hunting_Dogs_Tachihara.webp" class="driver-avatar">
           <span class="driver-name">Michizō <strong>Tachihara</strong>
 		  </span>
         </a>
       </div>
 	  <div class="driver-item">
         <a href="Mark Twain.html">
-		<img src="Mark_Twain_29.webp" class="driver-img">
+		<img src="Mark_Twain_29.webp" class="driver-avatar">
           <span class="driver-name">Mark <strong>Twain</strong>
 		  </span>
         </a>
       </div>
 	  <div class="driver-item">
         <a href="Mizuki Tsujimura.html">
-		<img src="Mizuki_Tsujimura_29.webp" class="driver-img">
+		<img src="Mizuki_Tsujimura_29.webp" class="driver-avatar">
           <span class="driver-name">Mizuki <strong>Tsujimura</strong>
 		  </span>
         </a>
