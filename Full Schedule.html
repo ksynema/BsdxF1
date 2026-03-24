@@ -610,7 +610,35 @@ html, body {
 .race-card.japan {
   background-image: url("img/japan.jpg");
 }
- 
+ /* GŁÓWNY UKŁAD */
+.event-main {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* FLAGA */
+.flag img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+}
+/* TOR (po prawej, jak na screenie) */
+.track {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.8;
+}
+
+.track img {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
 </style>
 </head>
 <body>
@@ -1369,10 +1397,16 @@ html, body {
       <span class="round">ROUND 22</span>
       <span class="date">10 – 12 DEC</span>
     </div>
-
+		   <div class="event-main">
+    <div class="flag">
+      <img src="flags/monaco.png" alt="Monaco flag">
+    </div>
     <h2 class="country">ABU DHABI</h2>
     <p class="race-name">FORMULA 1 ETIHAD AIRWAYS ABU DHABI GRAND PRIX 2027</p>
-
+    <div class="track">
+      <img src="tracks/monaco.png" alt="Monaco track">
+    </div>
+  </div>
     <div class="event-footer">
       <span>10 – 12 DEC</span>
     </div>
