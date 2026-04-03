@@ -187,37 +187,29 @@ h2, p {
 }
 .news-card {
   display: flex;
-  flex-direction: column;   /* obrazek na górze */
+  flex-direction: column;
   background: #0b0b0d;
   border-radius: 12px;
   overflow: hidden;
-  transition: 0.3s;
-  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .news-card:hover {
-  transform: translateY(-5px); /* zamiast scale */
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
 }
 
 .news-card img {
-  width: 100%;        /* było 120% → psuło layout */
-  height: 160px;      /* stała wysokość */
+  width: 100%;
+  height: 160px;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-.news-card:hover img{
-  transform: scale(1.05);
+.news-card:hover img {
+  transform: scale(1.03); /* mniej agresywne */
 }
-.news-card::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.7),
-    rgba(0,0,0,0.2)
-  );
-}
+
 .news-info{
   position: absolute;
   bottom: 20px;
@@ -896,7 +888,7 @@ html, body {
        <a href="get involved.html" class="schedule-btn">get involved</a>          
        <a href="2026 regulations.html" class="schedule-btn">2026 regulations</a>
 
-      <div class="news-card">
+     
 		  <a href="Osamu Dazai to become a race strategist of Agency Racing new rookie Atsushi Nahajima.html" class="news-card">
         <img src="img1.jpg" alt="">
       <div class="news-content">
@@ -904,9 +896,9 @@ html, body {
         <span>2 hours ago</span>
       </div>
 		  </a>
-      </div>
+      
 
-      <div class="news-card">
+     
         <a href="Osamu Dazai to come back to the F1.html" class="news-card">
       <img src="img2.jpg" alt="">
       <div class="news-content">
@@ -915,9 +907,9 @@ html, body {
         <span>2 hours ago</span>
       </div>
 		</a> 
-      </div>
+     
 
-      <div class="news-card">
+      
            <a href="The story of the most tragic f1 season.html" class="news-card">
       <img src="img3.jpg" alt="">
       <div class="news-content">
@@ -925,9 +917,9 @@ html, body {
         <span>4 hours ago</span>
       </div>
     </a>
-      </div>
+      
 
-      <div class="news-card">
+      
         <a href="Who are the Formula One Drivers.html" class="news-card">
       <img src="img5.jpg" alt="">
       <div class="news-content">
@@ -935,9 +927,9 @@ html, body {
         <span>6 hours ago</span>
       </div>
     </a>
-      </div>
+      
 	  
-	   <div class="news-card">
+	   
        <a href="Everything you need to know before the 2027 season.html" class="news-card">
       <img src="img6.jpg" alt="">
       <div class="news-content">
@@ -946,7 +938,7 @@ html, body {
         <span>6 hours ago</span>
       </div>
     </a>
-      </div>
+      
 	  
 	  
      <div class="schedule-footer">
