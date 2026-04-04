@@ -167,7 +167,7 @@ h2, p {
 }
 	
 .schedule-footer {
-  display: flex;
+  display: inline-block;
   justify-content: flex-start;
   max-width: 1400px;
   margin: 20px auto 0;
@@ -307,10 +307,10 @@ h2, p {
 /* Results: 2 kolumny */
 .dropdown-content.results {
 	
-	  position: fixed;
-  align-items: left;
-	flex-wrap: wrap;      /* żeby się zawijały jak zabraknie miejsca */
+	 display: flex;
+  flex-wrap: wrap;      /* żeby się zawijały jak zabraknie miejsca */
   justify-content: flex-start; /* 🔥 od lewej */
+  align-items: center; /* 🔥 od lewej */
   gap: 10px;            /* odstęp między przyciskami */
   position: fixed;
   top: 120px;
