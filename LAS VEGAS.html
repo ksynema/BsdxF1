@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
+
 <style>
- 
+
 .top-bar {
   display: flex;
   justify-content: space-between;
@@ -60,13 +61,15 @@ nav.menu-bar ul li a:hover {
 a {
   text-decoration: none;
   color: white;
-  cursor: pointer;
-  padding: 5px 8px;
-  border-radius: 6px;
-  transition: 0.2s;
 }
 
-a:hover {
+.button-link {
+  padding: 5px 8px;
+  border-radius: 6px;
+}
+
+.navbar a:hover,
+.menu-bar a:hover {
   background: rgba(255,255,255,0.1);
 }
 
@@ -77,14 +80,15 @@ a:active {
 }
 body {
   margin: 0;       /* usuwa domyślne marginesy */
-  padding: 0;
+  padding: 180px 0 0 0;
   background-color: #0c0f1f; /* wybierz swój kolor */
     margin: 0;
-  padding: 0;
   background-image: url('https://example.com/obrazek.jpg');
   background-size: cover;      /* dopasowanie do całego ekranu */
   background-repeat: no-repeat; 
   background-position: center; /* centrowanie obrazka */
+  color: white; /* 🔥 najlepsze globalne rozwiązanie */
+}
 }
 
 h2, p {
@@ -101,11 +105,17 @@ h2, p {
 .race-card{
   position: relative;
   border-radius: 12px;
-  
+  overflow: hidden; /* 🔥 KLUCZ */
+  z-index: 1;
   cursor: pointer;
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   height: 250px;
 
+}
+	.race-card a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .race-card img{
@@ -115,10 +125,12 @@ h2, p {
   transition: transform 0.3s;
 }
 
-.race-card:hover img{
-  transform: scale(1.05);
+.race-card:hover img {
+  transform: scale(1.02);
 }
 .race-card::after{
+	 pointer-events: none;
+  z-index: 1;
   content: "";
   position: absolute;
   inset: 0;
@@ -155,25 +167,40 @@ h2, p {
   height: 250px;
   object-fit: cover;
 }
-.schedule-footer{
-  margin-top: 20px;
+	
+.schedule-footer {
+  display: inline-block;
+  justify-content: flex-start;
+  max-width: 1400px;
+  margin: 20px auto 0;
+  position: relative;
+  z-index: 20; /* 🔥 nad kartami */
 }
 
-.schedule-btn{
-  display: none;
-  
-  padding: 2px 8px;
-  width: 200px;
-  height: 30px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 2px;
+.schedule-btn {
+  display: inline-flex;      /* lepsze dopasowanie */
+  align-items: left;
+  justify-content: center;
 
-  border: 2px solid white;
-  border-radius: 30px;
+  padding: 4px 10px;         /* 🔥 mniejsze */
+  font-size: 11px;           /* 🔥 mniejsze */
+  font-weight: 600;
 
-  transition: all 0.3s ease;
+  border: 1px solid white;   /* cieńsza ramka */
+  border-radius: 14px;
+
+  width: fit-content;        /* 🔥 kluczowe */
+  min-width: unset;          /* 🔥 usuwa wymuszoną szerokość */
+  height: auto;
+
+  white-space: nowrap;       /* nie rozciąga w dół */
+
+  transition: all 0.2s ease;
+}
+	.dropdown-content .schedule-btn {
+  padding: 4px 10px !important;
+  font-size: 11px !important;
+  min-width: unset !important;
 }
 .schedule-btn:hover{
   background-color: white;
@@ -186,36 +213,32 @@ h2, p {
   max-width: 1400px;
   margin: 0 auto;
 }
-.news-card{
-  position: relative;
+.news-card {
+   display: flex;
+  flex-direction: column;
+  height: 100%; /* 🔥 klucz */
+  background: #0b0b0d;
   border-radius: 12px;
-  
-  cursor: pointer;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  height: 250px;
-
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.news-card img{
-  width: 120%;
-  height: 250px;
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.news-card img {
+  width: 100%;
+  height: 160px;
   object-fit: cover;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
-.news-card:hover img{
-  transform: scale(1.05);
+.news-card:hover img {
+  transform: scale(1.03); /* mniej agresywne */
 }
-.news-card::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.7),
-    rgba(0,0,0,0.2)
-  );
-}
+
 .news-info{
   position: absolute;
   bottom: 20px;
@@ -223,24 +246,51 @@ h2, p {
   color: white;
   z-index: 2;
 }
+.news-content {
+  padding: 15px;
+	 flex-grow: 1;
+}
 
+.news-content h3 {
+  font-size: 16px;
+  line-height: 1.3;
+  height: 42px;       /* 🔥 stała wysokość */
+  overflow: hidden;
+}
 
+.news-content span {
+  font-size: 12px;
+  color: #aaa;
+}
+	.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+@media (max-width: 900px) {
+  .race-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .race-container {
+    grid-template-columns: 1fr;
+  }
+}
 
 
 /* wspólne dla wszystkich dropdownów */
 .dropdown-content {
   display: none;
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 120px;
   left: 0;
   width: 100vw;
   background-color: #0c0f1f;
-  flex-wrap: wrap; 
-  gap: 10px;
-  padding: 20px 20px;
-  z-index: 10;
+  padding: 20px 30px;
   box-sizing: border-box;
-  pointer-events: none;
+  z-index: 1000;
 }
 /* Schedule: 3 kolumny */
 .dropdown-content.schedule{
@@ -258,12 +308,16 @@ h2, p {
 
 /* Results: 2 kolumny */
 .dropdown-content.results {
+	
+	display: none;
+  flex-wrap: wrap;      /* żeby się zawijały jak zabraknie miejsca */
+  justify-content: flex-start; /* 🔥 od lewej */
+  align-items: center; /* 🔥 od lewej */
+  gap: 10px;            /* odstęp między przyciskami */
   position: fixed;
   top: 120px;
   left: 0;
   width: 100vw;
-  flex-wrap: wrap;
-  gap: 10px;
   padding: 10px 30px;
   background-color: #0c0f1f;
   box-sizing: border-box;
@@ -286,6 +340,8 @@ h2, p {
   grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
   gap: 25px;
   position: fixed;
+	justify-content: flex-start; /* 🔥 od lewej */
+	  align-items: center;
   top: 120px;
   left: 0;
   width: 100vw;
@@ -364,8 +420,7 @@ h2, p {
 }
 .driver-item a{
   display: flex;
-
-  gap: 18px;
+  gap: 10px;
   text-align: right;  /* usuwa centrowanie */
   text-decoration: none;
   color: white;
@@ -383,11 +438,10 @@ h2, p {
   background-color: #1a2a4a;
 }
 .driver-name{
-  
-  text-align: right;  /* usuwa centrowanie */
+    text-align: left;
+  font-size: 12px;
   left: 100px;
   border-radius: 10px;
-  font-size: 10px;
   letter-spacing: 0.5px;
 }
 .driver-item a:hover{
@@ -437,10 +491,7 @@ h2, p {
   display: flex;
   flex-wrap: wrap;
   }
-body {
-  background: #0d0f1a;
-  color: white;
-}
+
   /* NAVBAR */
 .navbar {
   display: flex;
@@ -497,10 +548,6 @@ body {
   left: 0;
   width: 100%;
   z-index: 9999;
-}
-body {
-  padding-top: 140px; /* dopasujemy za chwilę */
-  overflow-y: auto;
 }
 .dropdown-content {
   display: none;
