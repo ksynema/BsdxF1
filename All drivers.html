@@ -1,112 +1,11 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <title>F1 Drivers 2026</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0c0f1a;
-      color: white;
-    }
+<meta charset="UTF-8">
+<title>F1 Results</title>
+<link rel="stylesheet" href="style.css"> <!-- jeśli używasz -->
 
-    .container {
-      max-width: 1500px;
-	  padding-top: 250px;
-      margin: 0 auto;
-      
-    }
-
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-
-    p.subtitle {
-      color: #ccc;
-      margin-bottom: 40px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      position: relative;
-      border-radius: 16px;
-      padding: 20px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      min-height: 200px;
-    }
-
-    .card.agency-racing-limited {
-      background: linear-gradient(135deg, #FFBF00, #F9E897);
-    }
-
-    .card.Osaka-engeniering {
-      background: linear-gradient(135deg, #C44A3A, #D97A2B);
-    }
-	  .card.porto-motorsports-limited {
-      background: linear-gradient(135deg, #3E0703, #8C1007);
-    }
-	  .card.black-lizards-f1-team {
-      background: linear-gradient(135deg, #191A19, #1E5128);
-    }
-	  .card.guild-mercedes-F1-team {
-      background: linear-gradient(135deg, #31694E, #BBC863);
-    }
-	  .card.balena-bianca {
-      background: linear-gradient(135deg, #7AAACE, #F8FAFC);
-    }
-	  .card.Renault-anges-limited {
-      background: linear-gradient(135deg, #674188, #C3ACD0);
-    }
-	  .card.hunting-dogs {
-      background: linear-gradient(135deg, #8A7650, #84934A);
-    }
-	  .card.versements  {
-      background: linear-gradient(135deg, #57564F, #DDDAD0);
-    }
-	  .card.Special-Division-F1-team {
-      background: linear-gradient(135deg, #061E29, #64CCC5);
-    }
-
-    .card-content {
-      z-index: 2;
-    }
-
-    .name {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .team {
-      font-size: 14px;
-      opacity: 0.8;
-    }
-
-    .number {
-      font-size: 48px;
-      margin-top: 10px;
-      opacity: 0.8;
-    }
-
-   .driver-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
-
-    @media (max-width: 768px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
+<style>
 
 .top-bar {
   display: flex;
@@ -165,13 +64,15 @@ nav.menu-bar ul li a:hover {
 a {
   text-decoration: none;
   color: white;
-  cursor: pointer;
-  padding: 5px 8px;
-  border-radius: 6px;
-  transition: 0.2s;
 }
 
-a:hover {
+.button-link {
+  padding: 5px 8px;
+  border-radius: 6px;
+}
+
+.navbar a:hover,
+.menu-bar a:hover {
   background: rgba(255,255,255,0.1);
 }
 
@@ -206,11 +107,17 @@ h2, p {
 .race-card{
   position: relative;
   border-radius: 12px;
-  
+  overflow: hidden; /* 🔥 KLUCZ */
+  z-index: 1;
   cursor: pointer;
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   height: 250px;
 
+}
+	.race-card a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .race-card img{
@@ -220,10 +127,12 @@ h2, p {
   transition: transform 0.3s;
 }
 
-.race-card:hover img{
-  transform: scale(1.05);
+.race-card:hover img {
+  transform: scale(1.02);
 }
 .race-card::after{
+	 pointer-events: none;
+  z-index: 1;
   content: "";
   position: absolute;
   inset: 0;
@@ -260,25 +169,40 @@ h2, p {
   height: 250px;
   object-fit: cover;
 }
-.schedule-footer{
-  margin-top: 20px;
+	
+.schedule-footer {
+  display: inline-block;
+  justify-content: flex-start;
+  max-width: 1400px;
+  margin: 20px auto 0;
+  position: relative;
+  z-index: 20; /* 🔥 nad kartami */
 }
 
-.schedule-btn{
-  display: none;
-  
-  padding: 2px 8px;
-  width: 200px;
-  height: 30px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 2px;
+.schedule-btn {
+  display: inline-flex;      /* lepsze dopasowanie */
+  align-items: left;
+  justify-content: center;
 
-  border: 2px solid white;
-  border-radius: 30px;
+  padding: 4px 10px;         /* 🔥 mniejsze */
+  font-size: 11px;           /* 🔥 mniejsze */
+  font-weight: 600;
 
-  transition: all 0.3s ease;
+  border: 1px solid white;   /* cieńsza ramka */
+  border-radius: 14px;
+
+  width: fit-content;        /* 🔥 kluczowe */
+  min-width: unset;          /* 🔥 usuwa wymuszoną szerokość */
+  height: auto;
+
+  white-space: nowrap;       /* nie rozciąga w dół */
+
+  transition: all 0.2s ease;
+}
+	.dropdown-content .schedule-btn {
+  padding: 4px 10px !important;
+  font-size: 11px !important;
+  min-width: unset !important;
 }
 .schedule-btn:hover{
   background-color: white;
@@ -291,36 +215,32 @@ h2, p {
   max-width: 1400px;
   margin: 0 auto;
 }
-.news-card{
-  position: relative;
+.news-card {
+   display: flex;
+  flex-direction: column;
+  height: 100%; /* 🔥 klucz */
+  background: #0b0b0d;
   border-radius: 12px;
-  
-  cursor: pointer;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  height: 250px;
-
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.news-card img{
-  width: 120%;
-  height: 250px;
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.news-card img {
+  width: 100%;
+  height: 160px;
   object-fit: cover;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
-.news-card:hover img{
-  transform: scale(1.05);
+.news-card:hover img {
+  transform: scale(1.03); /* mniej agresywne */
 }
-.news-card::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.7),
-    rgba(0,0,0,0.2)
-  );
-}
+
 .news-info{
   position: absolute;
   bottom: 20px;
@@ -328,24 +248,51 @@ h2, p {
   color: white;
   z-index: 2;
 }
+.news-content {
+  padding: 15px;
+	 flex-grow: 1;
+}
 
+.news-content h3 {
+  font-size: 16px;
+  line-height: 1.3;
+  height: 42px;       /* 🔥 stała wysokość */
+  overflow: hidden;
+}
 
+.news-content span {
+  font-size: 12px;
+  color: #aaa;
+}
+	.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+@media (max-width: 900px) {
+  .race-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .race-container {
+    grid-template-columns: 1fr;
+  }
+}
 
 
 /* wspólne dla wszystkich dropdownów */
 .dropdown-content {
   display: none;
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 120px;
   left: 0;
   width: 100vw;
   background-color: #0c0f1f;
-  flex-wrap: wrap; 
-  gap: 10px;
-  padding: 20px 20px;
-  z-index: 10;
+  padding: 20px 30px;
   box-sizing: border-box;
-  pointer-events: none;
+  z-index: 1000;
 }
 /* Schedule: 3 kolumny */
 .dropdown-content.schedule{
@@ -363,12 +310,16 @@ h2, p {
 
 /* Results: 2 kolumny */
 .dropdown-content.results {
+	
+	display: none;
+  flex-wrap: wrap;      /* żeby się zawijały jak zabraknie miejsca */
+  justify-content: flex-start; /* 🔥 od lewej */
+  align-items: center; /* 🔥 od lewej */
+  gap: 10px;            /* odstęp między przyciskami */
   position: fixed;
   top: 120px;
   left: 0;
   width: 100vw;
-  flex-wrap: wrap;
-  gap: 10px;
   padding: 10px 30px;
   background-color: #0c0f1f;
   box-sizing: border-box;
@@ -391,6 +342,8 @@ h2, p {
   grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
   gap: 25px;
   position: fixed;
+	justify-content: flex-start; /* 🔥 od lewej */
+	  align-items: center;
   top: 120px;
   left: 0;
   width: 100vw;
@@ -469,8 +422,7 @@ h2, p {
 }
 .driver-item a{
   display: flex;
-
-  gap: 18px;
+  gap: 10px;
   text-align: right;  /* usuwa centrowanie */
   text-decoration: none;
   color: white;
@@ -488,11 +440,10 @@ h2, p {
   background-color: #1a2a4a;
 }
 .driver-name{
-  
-  text-align: right;  /* usuwa centrowanie */
+    text-align: left;
+  font-size: 12px;
   left: 100px;
   border-radius: 10px;
-  font-size: 10px;
   letter-spacing: 0.5px;
 }
 .driver-item a:hover{
@@ -542,10 +493,7 @@ h2, p {
   display: flex;
   flex-wrap: wrap;
   }
-body {
-  background: #0d0f1a;
-  color: white;
-}
+
   /* NAVBAR */
 .navbar {
   display: flex;
@@ -604,9 +552,10 @@ body {
   z-index: 9999;
 }
 body {
-  padding-top: 140px; /* dopasujemy za chwilę */
+  padding-top: 180px; /* dopasujemy za chwilę */
   overflow-y: auto;
 }
+
 .dropdown-content {
   display: none;
   pointer-events: none;
