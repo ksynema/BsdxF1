@@ -450,7 +450,7 @@ h2, p {
 
 
 .dropdown-content a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 .dropdown:hover .dropdown-content {
@@ -552,110 +552,144 @@ body {
   padding-top: 180px; /* dopasujemy za chwilę */
   overflow-y: auto;
 }
-.dropdown-content {
-  display: none;
-  pointer-events: none;
+.hero {
+  height: 500px;
+  background-image: url('CANADA.jpg'); /* zmień na swoje */
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-  pointer-events: auto;
-}
-  body {
-  background: #0f111a;
-  color: #e6e6e6;
-  font-family: Arial, sans-serif;
-  margin: 0;
+.hero-overlay {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  color: white;
 }
 
-.article {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
+.hero h1 {
+  font-size: 42px;
+  font-weight: bold;
+}
+	.schedule-section {
+  padding: 60px 40px;
+  color: white;
 }
 
-/* 🔥 HERO */
-.article-hero h1 {
-  font-size: 56px;
-  font-weight: 900;
-  line-height: 1.1;
-  margin: 20px 0;
+.schedule-section h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
 }
 
-.category {
-  font-size: 12px;
-  background: #2a2d3a;
-  padding: 5px 10px;
-  border-radius: 5px;
+.schedule-box {
+  background: linear-gradient(145deg, #0b0d1a, #111322);
+  border-radius: 16px;
+  padding: 25px 30px;
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 
-.lead {
-  font-size: 20px;
-  color: #b0b0b0;
-  max-width: 800px;
-}
-
-/* 🧱 OBRAZKI */
-.image-row {
+.event {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin: 40px 0;
+  grid-template-columns: 140px 1fr auto;
+  align-items: center;
+
+  padding: 26px 0;
+  min-height: 72px;
+
+  border-bottom: 1px solid #2a2d3a;
+}
+.event div:nth-child(2) {
+  font-size: 18px;      /* nazwa sesji */
 }
 
-.image-row img,
-.image-full img {
-  width: 100%;
-  border-radius: 10px;
+.event div:nth-child(3) {
+  font-size: 15px;      /* godzina */
+}
+.event div {
+  color: white;
+  font-size: 14px;
 }
 
-/* 📄 TEKST */
-.content-block {
-  margin: 30px 0;
+/* 📅 DATA */
+.event div:nth-child(1) {
+  color: #aaa;
+  font-size: 13px;
 }
 
-.content-block p {
-  font-size: 18px;
-  line-height: 1.7;
-  margin-bottom: 15px;
+/* 🏁 NAZWA SESJI */
+.event div:nth-child(2) {
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.5px;
 }
 
-/* 🔥 SEKCJA */
-.section h2 {
-  font-size: 36px;
-  margin: 40px 0 10px;
+/* ⏰ GODZINA → PRAWO */
+.event div:nth-child(3) {
+  text-align: right;
+  font-weight: 600;
+  font-size: 14px;
 }
 
-.section p {
-  font-size: 18px;
-  color: #cfcfcf;
+/* 🔥 hover jak F1 */
+.event:hover {
+  background: rgba(255,255,255,0.03);
+}
+	.event::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: #e10600;
+  border-radius: 2px;
+  opacity: 0;
+  transition: 0.2s;
 }
 
-/* 🔗 LINKI */
-a {
-  color: red;
-  text-decoration: none;
+.event:hover::before {
+  opacity: 1;
+}
+	.circuit-section {
+  padding: 60px 40px;
+  color: white;
 }
 
-a:hover {
-  text-decoration: underline;
+.circuit-section h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
 }
 
-/* ✨ HIGHLIGHT */
-.highlight {
-  color: red;
+.circuit-container {
+  display: flex;
+  gap: 50px;
+  align-items: center;
 }
 
-/* 📱 RESPONSIVE */
-@media (max-width: 768px) {
-  .article-hero h1 {
-    font-size: 32px;
-  }
-
-  .image-row {
-    grid-template-columns: 1fr;
-  }
+.track-map {
+  width: 400px;
 }
+
+.circuit-info h3 {
+  font-size: 48px;
+}
+	.top-bar span,
+.top-bar strong {
+  color: white;
+}
+
+.dropdown-content {
+  color: white;
+}
+	.top-bar .right span {
+  font-family: 'Courier New', monospace;
+  background: rgba(255,255,255,0.05);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+	
 </style>
 </head>
 <body>
@@ -1101,117 +1135,97 @@ a:hover {
     <span>R03 | 27–29 MAR</span>
     <strong>🇯🇵 Japan</strong>
   </div>
-
-  <div class="right">
-    <span>MY TIME 19:24</span>
-    <span>TRACK TIME 03:24</span>
-  </div>
+ </div>
+<div class="right">
+  <span id="myTime">MY TIME --:--</span>
+  <span id="trackTime">TRACK TIME --:--</span>
 </div>
 </div>
-<div class="article">
-
-  <!-- 🔥 HERO / POCZĄTEK -->
-  <div class="article-hero">
-    <span class="category">Lore guide</span>
-
-    <h1>
-      Everything you need to know about blinding lights-How the site works
-    </h1>
-
-    <p class="lead">
-      Hi, in here I will talk about all the things you need to know about how to move around the fic and the site.
-    </p>
+	
+<section class="hero">
+  <div class="hero-overlay">
+    <h1>FORMULA 1 LENOVO GRAND PRIX DU CANADA 2026</h1>
   </div>
+</section>
+<section class="schedule-section">
+	  <div class="schedule-box">
+    <div class="event">
+      <div>22 MAY</div>
+      <div>PRACTICE 1</div>
+      <div>18:30 – 19:30</div>
+    </div>
 
+    <div class="event">
+      <div>22 MAY</div>
+      <div>SPRINT QUALIFYING</div>
+      <div>22:30 – 23:14</div>
+    </div>
 
-  <!-- 🧱 SEKCJA Z OBRAZKAMI -->
-  <div class="image-row">
-    <img src="img1.jpg" alt="">
-    <img src="img2.jpg" alt="">
-    <img src="img3.jpg" alt="">
+    <div class="event">
+      <div>23 MAY</div>
+      <div>SPRINT</div>
+      <div>18:00 – 19:00</div>
+    </div>
+		   <div class="event">
+      <div>23 MAY</div>
+      <div>QUALIFYING</div>
+      <div>18:00 – 19:00</div>
+    </div>
+		   <div class="event">
+      <div>23 MAY</div>
+      <div>RACE</div>
+      <div>18:00 – 19:00</div>
+    </div>
   </div>
+</section>
 
+	<section class="circuit-section">
+  <h2>CIRCUIT</h2>
 
-  <!-- 📄 BLOK TEKSTU -->
-  <div class="content-block">
-    <p>
-      Okay, so for strters I know its probably a lot to take right now haha, but I promise it will be worth it in the end.
-    </p>
+  <div class="circuit-container">
+    <img src="track.png" class="track-map">
+
+    <div class="circuit-info">
+      <h3>4.361 km</h3>
+
+      <p><strong>First Grand Prix:</strong> 1978</p>
+      <p><strong>Laps:</strong> 70</p>
+      <p><strong>Race Distance:</strong> 305.27 km</p>
+      <p><strong>Fastest Lap:</strong> 1:13.078</p>
+    </div>
   </div>
-
-
-  <!-- 🔥 NAGŁÓWEK SEKCJI -->
-  <div class="section">
-    <h2>How the site works1?</h2>
-
-    <p>
-      The site was created to mimic the official F1 site, here we have all the essential information that can be found on the original site. 
-      They are of course not the same but similar enough to get the idea of how all of it works.
-      So we have sections like schedule where all of the races (and chapters) are listed, news, results of the races, all of the drivers and teams cards
-      The site was essentially created to imerse you as much as possible in the world of blinding lights
-      All of the information will be uptaded according to the specific chapters that will be posted so you can get the feeling of following the real F1 season
-      
-    </p>
-  </div>
-
-
-  <!-- 📄 KOLEJNY BLOK -->
-  <div class="content-block">
-    <p>
-      In Formula One you really get the best of both world as the sport is simultaneously a <span class="highlight">team and individual</span> sport, .
-    </p>
-
-    <p>
-     During the race season  Drivers compete for the <a href="#">F1 Drivers’ Championship</a>, while the teams fight for the <a href="#">F1 Teams’ Championship</a>.
-    </p>
-  </div>
-
-
-  <!-- 🖼️ POJEDYNCZE ZDJĘCIE -->
-  <div class="image-full">
-    <img src="img4.jpg" alt="">
-  </div>
-
-
-  <!-- 📄 TEKST POD ZDJĘCIEM -->
-  <div class="content-block">
-    <p>
-      Each race is known as a Grand Prix, and they’re held in various locations around the whole world. The 2027 season will feature 23 races which will be taking place since march till december.
-    </p>
-  </div>
-
- <div class="section">
-    <h2>Quick walkthrought of drivers and teams</h2>
-   
-   <div class="content-block">
-    <p>
-      A total of 20 drivers and 10 teams will be fighting for champoinships in this years season. Every team will put out two drivers.
-    </p>
-  </div>
-     <div class="content-block">
-    <p>
-      On the grid we will welcome drivers who alredy made they names big in the industry previous championship winners such as: Teruko Okura, Doppo Kunikida, Nathaniel Hawthorne with the addition of last years champion Saigiku Jono. The reacurring sice many years drivers featuring Chuya Nakahara, Nikolai Gogol and Ivan Gornachov. We will also welcome few rookie drivers appearing on aour trakcs Kyoka Izumi and Atsushi Nakajima. 
-    </p>
-  </div>
-      <div class="content-block">
-    <p>
-      In terms of teams there will invariably sice the early years be Porto (racing since the first ever Formula One season), few younger squads like Osaka Engenering (created in 2024) and a new team Special Devision F1 team which will replace The United Nations. 
-    </p>
-  </div>
-    <div class="section">
-    <h2>Where will the race take place </h2>
-   
-   <div class="content-block">
-    <p>
-      The 2027 season will feature 23 races across 21 countries. Thre will be a mix of beloved classic circuts such as Silverstone Spa or Suzuka combined with newer tracks like Miami and Sudi Arabia 
-    </p>
-  </div>
-  <!-- 🔁 POWIELAJ TO -->
-  <!-- Możesz kopiować section + content + image ile chcesz -->
+</section>
 
 </div>
   </script>
-		
+	<script>
+function updateClocks() {
+  const now = new Date();
+
+  // 🕒 MY TIME (lokalny użytkownika)
+  let myHours = now.getHours().toString().padStart(2, '0');
+  let myMinutes = now.getMinutes().toString().padStart(2, '0');
+
+  document.getElementById("myTime").innerText =
+    "MY TIME " + myHours + ":" + myMinutes;
+
+  // 🇯🇵 TRACK TIME (np. Japonia – UTC+9)
+  let utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  let japanTime = new Date(utc + (3600000 * 9));
+
+  let trackHours = japanTime.getHours().toString().padStart(2, '0');
+  let trackMinutes = japanTime.getMinutes().toString().padStart(2, '0');
+
+  document.getElementById("trackTime").innerText =
+    "TRACK TIME " + trackHours + ":" + trackMinutes;
+}
+
+// odświeżanie co sekundę
+setInterval(updateClocks, 1000);
+
+// start od razu
+updateClocks();
+</script>		
 </body>
 	
 	
