@@ -582,16 +582,67 @@ body {
 }
 
 .schedule-box {
-  background: black;
-  border-radius: 12px;
-  padding: 30px;
+  background: linear-gradient(145deg, #0b0d1a, #111322);
+  border-radius: 16px;
+  padding: 25px 30px;
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 
 .event {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 0;
-  border-bottom: 1px solid #333;
+  display: grid;
+  grid-template-columns: 120px 1fr auto; /* 🔥 data | nazwa | godzina */
+  align-items: center;
+  position: relative;
+  padding: 18px 0;
+  border-bottom: 1px solid #2a2d3a;
+}
+
+.event div {
+  color: white;
+  font-size: 14px;
+}
+
+/* 📅 DATA */
+.event div:nth-child(1) {
+  color: #aaa;
+  font-size: 13px;
+}
+
+/* 🏁 NAZWA SESJI */
+.event div:nth-child(2) {
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+/* ⏰ GODZINA → PRAWO */
+.event div:nth-child(3) {
+  text-align: right;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* 🔥 hover jak F1 */
+.event:hover {
+  background: rgba(255,255,255,0.03);
+}
+	.event::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: #e10600;
+  border-radius: 2px;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.event:hover::before {
+  opacity: 1;
 }
 	.circuit-section {
   padding: 60px 40px;
