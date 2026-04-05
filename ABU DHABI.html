@@ -450,7 +450,7 @@ h2, p {
 
 
 .dropdown-content a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 .dropdown:hover .dropdown-content {
@@ -615,6 +615,20 @@ body {
 
 .circuit-info h3 {
   font-size: 48px;
+}
+	.top-bar span,
+.top-bar strong {
+  color: white;
+}
+
+.dropdown-content {
+  color: white;
+}
+	.top-bar .right span {
+  font-family: 'Courier New', monospace;
+  background: rgba(255,255,255,0.05);
+  padding: 6px 10px;
+  border-radius: 6px;
 }
 	
 </style>
@@ -1063,12 +1077,10 @@ body {
     <strong>🇯🇵 Japan</strong>
   </div>
 
-  <div class="right">
-    <span>MY TIME 19:24</span>
-    <span>TRACK TIME 03:24</span>
-  </div>
-</div>
-</div>
+<div class="right">
+  <span id="myTime">MY TIME --:--</span>
+  <span id="trackTime">TRACK TIME --:--</span>
+</div>>
 	
 <section class="hero">
   <div class="hero-overlay">
@@ -1113,7 +1125,34 @@ body {
     </div>
   </div>
 </section>
-	
+	<script>
+function updateClocks() {
+  const now = new Date();
+
+  // 🕒 MY TIME (lokalny użytkownika)
+  let myHours = now.getHours().toString().padStart(2, '0');
+  let myMinutes = now.getMinutes().toString().padStart(2, '0');
+
+  document.getElementById("myTime").innerText =
+    "MY TIME " + myHours + ":" + myMinutes;
+
+  // 🇯🇵 TRACK TIME (np. Japonia – UTC+9)
+  let utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  let japanTime = new Date(utc + (3600000 * 9));
+
+  let trackHours = japanTime.getHours().toString().padStart(2, '0');
+  let trackMinutes = japanTime.getMinutes().toString().padStart(2, '0');
+
+  document.getElementById("trackTime").innerText =
+    "TRACK TIME " + trackHours + ":" + trackMinutes;
+}
+
+// odświeżanie co sekundę
+setInterval(updateClocks, 1000);
+
+// start od razu
+updateClocks();
+</script>
 </div>
   </script>
 		
