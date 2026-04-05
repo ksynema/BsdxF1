@@ -552,7 +552,71 @@ body {
   padding-top: 180px; /* dopasujemy za chwilę */
   overflow-y: auto;
 }
+.hero {
+  height: 500px;
+  background-image: url('CANADA.jpg'); /* zmień na swoje */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
 
+.hero-overlay {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: bold;
+}
+	.schedule-section {
+  padding: 60px 40px;
+  color: white;
+}
+
+.schedule-section h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.schedule-box {
+  background: black;
+  border-radius: 12px;
+  padding: 30px;
+}
+
+.event {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid #333;
+}
+	.circuit-section {
+  padding: 60px 40px;
+  color: white;
+}
+
+.circuit-section h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.circuit-container {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.track-map {
+  width: 400px;
+}
+
+.circuit-info h3 {
+  font-size: 48px;
+}
+	
 </style>
 </head>
 <body>
@@ -1005,7 +1069,51 @@ body {
   </div>
 </div>
 </div>
+	
+<section class="hero">
+  <div class="hero-overlay">
+    <h1>FORMULA 1 LENOVO GRAND PRIX DU CANADA 2026</h1>
+  </div>
+</section>
 
+	  <div class="schedule-box">
+    <div class="event">
+      <div>22 MAY</div>
+      <div>PRACTICE 1</div>
+      <div>18:30 – 19:30</div>
+    </div>
+
+    <div class="event">
+      <div>22 MAY</div>
+      <div>SPRINT QUALIFYING</div>
+      <div>22:30 – 23:14</div>
+    </div>
+
+    <div class="event">
+      <div>23 MAY</div>
+      <div>SPRINT</div>
+      <div>18:00 – 19:00</div>
+    </div>
+  </div>
+</section>
+
+	<section class="circuit-section">
+  <h2>CIRCUIT</h2>
+
+  <div class="circuit-container">
+    <img src="track.png" class="track-map">
+
+    <div class="circuit-info">
+      <h3>4.361 km</h3>
+
+      <p><strong>First Grand Prix:</strong> 1978</p>
+      <p><strong>Laps:</strong> 70</p>
+      <p><strong>Race Distance:</strong> 305.27 km</p>
+      <p><strong>Fastest Lap:</strong> 1:13.078</p>
+    </div>
+  </div>
+</section>
+	
 </div>
   </script>
 		
