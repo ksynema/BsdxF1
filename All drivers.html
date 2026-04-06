@@ -82,15 +82,13 @@ a:active {
 
 }
 body {
-  margin: 0;       /* usuwa domyślne marginesy */
+  margin: 0;
   padding: 0;
-  background-color: #0c0f1f; /* wybierz swój kolor */
-    margin: 0;
-  padding: 0;
+  background-color: #0c0f1f;
   background-image: url('https://example.com/obrazek.jpg');
-  background-size: cover;      /* dopasowanie do całego ekranu */
-  background-repeat: no-repeat; 
-  background-position: center; /* centrowanie obrazka */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 h2, p {
@@ -438,9 +436,9 @@ h2, p {
 
 .driver-img {
   position: absolute;
+  height: 100%;
   right: 0;
   bottom: 0;
-  height: 110%;
 }
 
 .driver-item a:hover{
@@ -559,10 +557,7 @@ h2, p {
   width: 100%;
   z-index: 9999;
 }
-body {
-  padding-top: 140px; /* dopasujemy za chwilę */
-  overflow-y: auto;
-}
+
 
 .grid {
   display: grid;
@@ -649,6 +644,9 @@ html, body {
     rgba(0,0,0,0.2) 40%,
     rgba(0,0,0,0.0) 100%
   );
+}
+	.team-card {
+  composes: card;
 }
 /* Mercedes (turkus) */
 .team-card.agency-racing-limited {
@@ -1143,7 +1141,7 @@ html, body {
 
   <div class="grid">
 
-    <div class="team-card agency-racing-limited">
+    <div class="team-card agency-racing-limited card">
 	  <a href="Doppo Kunikida.html">
       <div class="card-content">
         <div class="name">Doppo Kunikida</div>
@@ -1154,7 +1152,7 @@ html, body {
       <img class="driver-img" src="Doppo_Kunikida_29.webp" alt="">
     </div>
 
-    <div class="team-card agency-racing-limited">
+    <div class="team-card agency-racing-limited card">
 		<a href="Atsushi Nakajima.html">
       <div class="card-content">
         <div class="name">Atsushi Nakajima</div>
@@ -1165,7 +1163,7 @@ html, body {
       <img class="driver-img" src="Atsushi_Nakajima_29.jpg" alt="">
     </div>
 
-    <div class="team-card porto-motorsports-limited">
+    <div class="team-card porto-motorsports-limited card">
 	  <a href="Chūya Nakahara.html">
       <div class="card-content">
         <div class="name">Chūya Nakahara</div>
@@ -1176,17 +1174,17 @@ html, body {
       <img class="driver-img" src="Chuya_Nakahara_29.webp" alt="">
     </div>
 
-    <div class="team-card porto-motorsports-limited">
+    <div class="team-card porto-motorsports-limited card">
 	  <a href="Ryūnosuke Akutagawa.html">
       <div class="card-content">
         <div class="name">Ryūnosuke Akutagawa</div>
         <div class="team">porto motorsports limited</div>
         <div class="number">44</div>
-		  </a>
-      </div>
+		  </div>
+	</a>
       <img class="driver-img" src="Ryunosuke_Akutagawa_29.webp" alt="">
     </div>
-    <div class="team-card black-lizards-f1-team">
+    <div class="team-card black-lizards-f1-team card">
 	  <a href="Gin Akutagawa.html">
       <div class="card-content">
         <div class="name">Gin Akutagawa</div>
@@ -1196,7 +1194,7 @@ html, body {
 		  </a>
       <img class="driver-img" src="Gin_Akutagawa_29.webp" alt="">
     </div>
-    <div class="team-card black-lizards-f1-team">
+    <div class="team-card black-lizards-f1-team card">
 		<a href="Michizō Tachihara.html">
       <div class="card-content">
         <div class="name">Michizō Tachihara</div>
@@ -1206,7 +1204,7 @@ html, body {
 		  </a>
       <img class="driver-img" src="Tachihara/Hunting_Dogs_Tachihara.webp" alt="">
     </div>
-    <div class="team-card guild-mercedes-F1-team">
+    <div class="team-card guild-mercedes-F1-team card">
 	  <a href="Lucy Montgomery.html">
       <div class="card-content">
         <div class="name">Lucy Montgomery</div>
@@ -1216,7 +1214,7 @@ html, body {
 		  </a>
       <img class="driver-img" src="Lucy_Maud_Montgomery_29.webp" alt="">
     </div>
-    <div class="team-card guild-mercedes-F1-team">
+    <div class="team-card guild-mercedes-F1-team card">
 	  <a href="Mark Twain.html">
       <div class="card-content">
         <div class="name">Mark Twain</div>
@@ -1226,7 +1224,7 @@ html, body {
 		  </a>
       <img class="driver-img" src="Mark_Twain_29.webp" alt="">
     </div>
-    <div class="team-card balena-bianca">
+    <div class="team-card balena-bianca card">
 	  <a href="Nathaniel Hawthorne.html">
       <div class="card-content">
         <div class="name">Nathaniel Hawthorne</div>
@@ -1236,7 +1234,7 @@ html, body {
 		  </a>
       <img class="driver-img" src="Nathaniel_Hawthorne_29.webp" alt="">
     </div>
-    <div class="team-card balena-bianca">
+    <div class="team-card balena-bianca card">
 	  <a href="John Steinbeck.html">
       <div class="card-content">
         <div class="name">John Steinbeck</div>
@@ -1246,7 +1244,7 @@ html, body {
 		  </a>
       <img class="driver-img" src="John_Steinbeck_29.webp" alt="">
     </div>
-    <div class="team-card Renault-anges-limited">
+    <div class="team-card Renault-anges-limited card">
 	  <a href="Nikolai Gogol.html">
       <div class="card-content">
         <div class="name">Nikolai Gogol</div>
@@ -1256,7 +1254,7 @@ html, body {
 		  </a>
       <img class="driver-img" src="Nikolai_Gogol_29.webp" alt="">
     </div>
-    <div class="team-card Renault-anges-limited">
+    <div class="team-card Renault-anges-limited card">
 	  <a href="Sigma.html">
       <div class="card-content">
         <div class="name">Sigma</div>
@@ -1266,7 +1264,7 @@ html, body {
 		  </a>
       <img class="driver-img" src="Sigma.webp" alt="">
     </div>
-    <div class="team-card hunting-dogs">
+    <div class="team-card hunting-dogs card">
 	  <a href="Saigiku Jōno.html">
       <div class="card-content">
         <div class="name">Saigiku Jōno</div>
@@ -1276,7 +1274,7 @@ html, body {
 		  </a>
       <img class="driver-img" src="Saigiku_Jono_29.webp" alt="">
     </div>
-    <div class="team-card hunting-dogs">
+    <div class="team-card hunting-dogs card">
 	  <a href="Teruko Ōkura.html">
       <div class="card-content">
         <div class="name">Teruko Ōkura</div>
@@ -1286,7 +1284,7 @@ html, body {
 		  </a>
       <img class="driver-img" src="Teruko_Okura_29.webp" alt="">
     </div>
-    <div class="team-card versements">
+    <div class="team-card versements card">
 	  <a href="Alexander Pushkin.html">
       <div class="card-content">
         <div class="name">Alexander Pushkin</div>
@@ -1296,7 +1294,7 @@ html, body {
 		  </a>
       <img class="driver-img" src="Alexander_Pushkin.webp" alt="">
     </div>
-        <div class="team-card versements">
+        <div class="team-card versements card">
 	  <a href="Ivan Goncharov.html">
       <div class="card-content">
         <div class="name">Ivan Goncharov</div>
@@ -1306,7 +1304,7 @@ html, body {
 		  </a>
       <img class="driver-img" src="Ivan_Goncharov_29.webp" alt="">
     </div>
-    <div class="team-card Special-Division-F1-team">
+    <div class="team-card Special-Division-F1-team card">
 	  <a href="Mizuki Tsujimura.html">
       <div class="card-content">
         <div class="name">Mizuki Tsujimura</div>
@@ -1316,7 +1314,7 @@ html, body {
 		  </a>
       <img class="driver-img" src="Mizuki_Tsujimura_29.webp" alt="">
     </div>
-    <div class="team-card Special-Division-F1-team">
+    <div class="team-card Special-Division-F1-team card">
 	  <a href="Yachiyo Murakoso.html">
       <div class="card-content">
         <div class="name">Yachiyo Murakoso</div>
@@ -1326,7 +1324,7 @@ html, body {
 		  </a>
       <img class="driver-img" src="Murakoso_29.webp" alt="">
     </div>
-    <div class="team-card Osaka-engeniering">
+    <div class="team-card Osaka-engeniering card">
 	  <a href="Kenji Miyazawa.html">
       <div class="card-content">
         <div class="name">Kenji Miyazawa</div>
@@ -1336,7 +1334,7 @@ html, body {
 		  </a>
       <img class="driver-img" src="Kenji_Miyazawa_29.webp" alt="">
     </div>
-    <div class="team-card Osaka-engeniering">
+    <div class="team-card Osaka-engeniering card">
 	  <a href="Kyōka Izumi.html">
       <div class="card-content">
         <div class="name">Kyōka Izumi</div>
