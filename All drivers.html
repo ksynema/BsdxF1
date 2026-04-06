@@ -635,31 +635,7 @@ html, body {
   z-index: 2;
   pointer-events: none;
 }
-.card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(0,0,0,0.6),
-    rgba(0,0,0,0.0)
-  );
-  z-index: 1;
-}
 
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-
-  background: linear-gradient(
-    90deg,
-    rgba(0,0,0,0.6) 0%,
-    rgba(0,0,0,0.2) 40%,
-    rgba(0,0,0,0.0) 100%
-  );
-}
 	.team-card {
   composes: card;
 }
