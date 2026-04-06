@@ -557,7 +557,10 @@ h2, p {
   width: 100%;
   z-index: 9999;
 }
-
+body {
+  padding-top: 140px; /* dopasujemy za chwilę */
+  overflow-y: auto;
+}
 
 .grid {
   display: grid;
@@ -632,7 +635,19 @@ html, body {
   z-index: 2;
   pointer-events: none;
 }
-	.card::before {
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.0)
+  );
+  z-index: 1;
+}
+
+.card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -1141,209 +1156,186 @@ html, body {
 
   <div class="grid">
 
-    <div class="team-card agency-racing-limited card">
-	  <a href="Doppo Kunikida.html">
-      <div class="card-content">
-        <div class="name">Doppo Kunikida</div>
-        <div class="team">agency racing limited</div>
-        <div class="number">63</div>
-      </div>
-		  </a>
-      <img class="driver-img" src="Doppo_Kunikida_29.webp" alt="">
-    </div>
+<a href="Doppo Kunikida.html" class="team-card agency-racing-limited card">
+  <div class="card-content">
+    <div class="name">Doppo Kunikida</div>
+    <div class="team">agency racing limited</div>
+    <div class="number">63</div>
+  </div>
+  <img class="driver-img" src="Doppo_Kunikida_29.webp" alt="">
+</a>
 
-    <div class="team-card agency-racing-limited card">
-		<a href="Atsushi Nakajima.html">
-      <div class="card-content">
-        <div class="name">Atsushi Nakajima</div>
-        <div class="team">agency racing limited</div>
-        <div class="number">12</div>
-      </div>
-			</a>
-      <img class="driver-img" src="Atsushi_Nakajima_29.jpg" alt="">
-    </div>
+	  <a href="Atsushi Nakajima.html" class="team-card agency-racing-limited card">
+  <div class="card-content">
+    <div class="name">Atsushi Nakajima</div>
+    <div class="team">agency racing limited</div>
+    <div class="number">12</div>
+  </div>
+  <img class="driver-img" src="Atsushi_Nakajima_29.webp" alt="">
+</a>
 
-    <div class="team-card porto-motorsports-limited card">
-	  <a href="Chūya Nakahara.html">
-      <div class="card-content">
-        <div class="name">Chūya Nakahara</div>
-        <div class="team">porto motorsports limited</div>
-        <div class="number">16</div>
-      </div>
-	</a>
-      <img class="driver-img" src="Chuya_Nakahara_29.webp" alt="">
-    </div>
+	  	  <a href="Chūya Nakahara.html" class="team-card porto-motorsports-limited card">
+  <div class="card-content">
+    <div class="name">Chūya Nakahara</div>
+    <div class="team">porto motorsports limited</div>
+    <div class="number">16</div>
+  </div>
+  <img class="driver-img" src="Chuya_Nakahara_29.webp" alt="">
+</a>
 
-    <div class="team-card porto-motorsports-limited card">
-	  <a href="Ryūnosuke Akutagawa.html">
-      <div class="card-content">
-        <div class="name">Ryūnosuke Akutagawa</div>
-        <div class="team">porto motorsports limited</div>
-        <div class="number">44</div>
-		  </div>
-	</a>
-      <img class="driver-img" src="Ryunosuke_Akutagawa_29.webp" alt="">
-    </div>
-    <div class="team-card black-lizards-f1-team card">
-	  <a href="Gin Akutagawa.html">
-      <div class="card-content">
-        <div class="name">Gin Akutagawa</div>
-        <div class="team">black lizards f1 team</div>
-        <div class="number">44</div>
-      </div>
-		  </a>
-      <img class="driver-img" src="Gin_Akutagawa_29.webp" alt="">
-    </div>
-    <div class="team-card black-lizards-f1-team card">
-		<a href="Michizō Tachihara.html">
-      <div class="card-content">
-        <div class="name">Michizō Tachihara</div>
-        <div class="team">black lizards f1 team</div>
-        <div class="number">44</div>
-		  </div>
-		  </a>
-      <img class="driver-img" src="Tachihara/Hunting_Dogs_Tachihara.webp" alt="">
-    </div>
-    <div class="team-card guild-mercedes-F1-team card">
-	  <a href="Lucy Montgomery.html">
-      <div class="card-content">
-        <div class="name">Lucy Montgomery</div>
-        <div class="team">guild mercedes F1 team</div>
-        <div class="number">44</div>
-		  </div>
-		  </a>
-      <img class="driver-img" src="Lucy_Maud_Montgomery_29.webp" alt="">
-    </div>
-    <div class="team-card guild-mercedes-F1-team card">
-	  <a href="Mark Twain.html">
-      <div class="card-content">
-        <div class="name">Mark Twain</div>
-        <div class="team">guild mercedes F1 team</div>
-        <div class="number">44</div>
-		  </div>
-		  </a>
-      <img class="driver-img" src="Mark_Twain_29.webp" alt="">
-    </div>
-    <div class="team-card balena-bianca card">
-	  <a href="Nathaniel Hawthorne.html">
-      <div class="card-content">
-        <div class="name">Nathaniel Hawthorne</div>
-        <div class="team">balena bianca</div>
-        <div class="number">44</div>
-		 </div>
-		  </a>
-      <img class="driver-img" src="Nathaniel_Hawthorne_29.webp" alt="">
-    </div>
-    <div class="team-card balena-bianca card">
-	  <a href="John Steinbeck.html">
-      <div class="card-content">
-        <div class="name">John Steinbeck</div>
-        <div class="team">balena bianca</div>
-        <div class="number">44</div>
-		 </div>
-		  </a>
-      <img class="driver-img" src="John_Steinbeck_29.webp" alt="">
-    </div>
-    <div class="team-card Renault-anges-limited card">
-	  <a href="Nikolai Gogol.html">
-      <div class="card-content">
-        <div class="name">Nikolai Gogol</div>
-        <div class="team">Renault anges limited</div>
-        <div class="number">44</div>
-		  </div>
-		  </a>
-      <img class="driver-img" src="Nikolai_Gogol_29.webp" alt="">
-    </div>
-    <div class="team-card Renault-anges-limited card">
-	  <a href="Sigma.html">
-      <div class="card-content">
-        <div class="name">Sigma</div>
-        <div class="team">Renault anges limited</div>
-        <div class="number">44</div>
-		  </div>
-		  </a>
-      <img class="driver-img" src="Sigma.webp" alt="">
-    </div>
-    <div class="team-card hunting-dogs card">
-	  <a href="Saigiku Jōno.html">
-      <div class="card-content">
-        <div class="name">Saigiku Jōno</div>
-        <div class="team">hunting dogs</div>
-        <div class="number">44</div>
-		 </div>
-		  </a>
-      <img class="driver-img" src="Saigiku_Jono_29.webp" alt="">
-    </div>
-    <div class="team-card hunting-dogs card">
-	  <a href="Teruko Ōkura.html">
-      <div class="card-content">
-        <div class="name">Teruko Ōkura</div>
-        <div class="team">hunting dogs</div>
-        <div class="number">44</div>
-		  </div>
-		  </a>
-      <img class="driver-img" src="Teruko_Okura_29.webp" alt="">
-    </div>
-    <div class="team-card versements card">
-	  <a href="Alexander Pushkin.html">
-      <div class="card-content">
-        <div class="name">Alexander Pushkin</div>
-        <div class="team">versements</div>
-        <div class="number">44</div>
-		  </div>
-		  </a>
-      <img class="driver-img" src="Alexander_Pushkin.webp" alt="">
-    </div>
-        <div class="team-card versements card">
-	  <a href="Ivan Goncharov.html">
-      <div class="card-content">
-        <div class="name">Ivan Goncharov</div>
-        <div class="team">versements</div>
-        <div class="number">44</div>
-		  </div>
-		  </a>
-      <img class="driver-img" src="Ivan_Goncharov_29.webp" alt="">
-    </div>
-    <div class="team-card Special-Division-F1-team card">
-	  <a href="Mizuki Tsujimura.html">
-      <div class="card-content">
-        <div class="name">Mizuki Tsujimura</div>
-        <div class="team">Special Division F1 team</div>
-        <div class="number">44</div>
-		  </div>
-		  </a>
-      <img class="driver-img" src="Mizuki_Tsujimura_29.webp" alt="">
-    </div>
-    <div class="team-card Special-Division-F1-team card">
-	  <a href="Yachiyo Murakoso.html">
-      <div class="card-content">
-        <div class="name">Yachiyo Murakoso</div>
-        <div class="team">Special Division F1 team</div>
-        <div class="number">44</div>
-		</div>
-		  </a>
-      <img class="driver-img" src="Murakoso_29.webp" alt="">
-    </div>
-    <div class="team-card Osaka-engeniering card">
-	  <a href="Kenji Miyazawa.html">
-      <div class="card-content">
-        <div class="name">Kenji Miyazawa</div>
-        <div class="team">Osaka engeniering</div>
-        <div class="number">44</div>
-		  </div>
-		  </a>
-      <img class="driver-img" src="Kenji_Miyazawa_29.webp" alt="">
-    </div>
-    <div class="team-card Osaka-engeniering card">
-	  <a href="Kyōka Izumi.html">
-      <div class="card-content">
-        <div class="name">Kyōka Izumi</div>
-        <div class="team">Osaka engeniering</div>
-        <div class="number">44</div>
-		  </div>
-		  </a>
-      <img class="driver-img" src="Kyoka_Izumi_29.webp" alt="">
-    </div>
+	  	  <a href="Ryūnosuke Akutagawa.html" class="team-card porto-motorsports-limited card">
+  <div class="card-content">
+    <div class="name">Ryūnosuke Akutagawa</div>
+    <div class="team">porto motorsports limited</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Ryunosuke_Akutagawa_29.webp" alt="">
+</a>  
+
+	  	  	  <a href="Gin Akutagawa.html" class="team-card black-lizards-f1-team card">
+  <div class="card-content">
+    <div class="name">Gin Akutagawa</div>
+    <div class="team">black lizards f1 team</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Gin_Akutagawa_29.webp" alt="">
+</a>  
+
+	  	  	  	  <a href="Michizō Tachihara.html" class="team-card black-lizards-f1-team card">
+  <div class="card-content">
+    <div class="name">Michizō Tachihara</div>
+    <div class="team">black lizards f1 team</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Tachihara/Hunting_Dogs_Tachihara.webp" alt="">
+</a>  
+
+	  	  	  	 <a href="Lucy Montgomery.html" class="team-card guild-mercedes-F1-team card">
+  <div class="card-content">
+    <div class="name">Lucy Montgomery</div>
+    <div class="team">guild mercedes F1 team</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Lucy_Maud_Montgomery_29.webp" alt="">
+</a> 
+
+	  	  	  	 <a href="Mark Twain.html" class="team-card guild-mercedes-F1-team card">
+  <div class="card-content">
+    <div class="name">Mark Twain</div>
+    <div class="team">guild mercedes F1 team</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Mark_Twain_29.webp" alt="">
+</a> 	  
+
+	  	  	  	 <a href="Nathaniel Hawthorne.html" class="team-card balena-bianca card">
+  <div class="card-content">
+    <div class="name">Nathaniel Hawthorne</div>
+    <div class="team">balena bianca</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Nathaniel_Hawthorne_29.webp" alt="">
+</a> 
+
+	  	  	  	 <a href="John Steinbeck.html" class="team-card balena-bianca card">
+  <div class="card-content">
+    <div class="name">John Steinbeck</div>
+    <div class="team">balena bianca</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="John_Steinbeck_29.webp" alt="">
+</a> 	  
+
+	  	  	  	 <a href="Nikolai Gogol.html" class="team-card Renault-anges-limited card">
+  <div class="card-content">
+    <div class="name">Nikolai Gogol</div>
+    <div class="team">Renault anges limited</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Nikolai_Gogol_29.webp" alt="">
+</a> 	
+
+	  	  	  	 <a href="Sigma.html" class="team-card Renault-anges-limited card">
+  <div class="card-content">
+    <div class="name">Sigma</div>
+    <div class="team">Renault anges limited</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Sigma.webp" alt="">
+</a> 
+
+	  	  	  	 <a href="Saigiku Jōno.html" class="team-card hunting-dogs card">
+  <div class="card-content">
+    <div class="name">Saigiku Jōno</div>
+    <div class="team">hunting dogs</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Saigiku_Jono_29.webp" alt="">
+</a> 	  
+
+	  	  	  	 <a href="Teruko Ōkura.html" class="team-card hunting-dogs card">
+  <div class="card-content">
+    <div class="name">Teruko Ōkura</div>
+    <div class="team">hunting dogs</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Teruko_Okura_29.webp" alt="">
+</a> 	  
+
+	  	  	  	 <a href="Alexander Pushkin.html" class="team-card versements card">
+  <div class="card-content">
+    <div class="name">Alexander Pushkin</div>
+    <div class="team">versements</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Alexander_Pushkin.webp" alt="">
+</a>	
+
+	  	  	  	 <a href="Ivan Goncharov.html" class="team-card versements card">
+  <div class="card-content">
+    <div class="name">Ivan Goncharov</div>
+    <div class="team">versements</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Ivan_Goncharov_29.webp" alt="">
+</a>		  
+
+	  	  	  	 <a href="Mizuki Tsujimura.html" class="team-card Special-Division-F1-team card">
+  <div class="card-content">
+    <div class="name">Mizuki Tsujimura</div>
+    <div class="team">Special Division F1 team</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Mizuki_Tsujimura_29.webp" alt="">
+</a>	  
+
+	  	  	  	 <a href="Yachiyo Murakoso.html" class="team-card Special-Division-F1-team card">
+  <div class="card-content">
+    <div class="name">Yachiyo Murakoso</div>
+    <div class="team">Special Division F1 team</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Murakoso_29.webp" alt="">
+</a>		  
+
+	  	  	  	 <a href="Kenji Miyazawa.html" class="team-card Osaka-engeniering card">
+  <div class="card-content">
+    <div class="name">Kenji Miyazawa</div>
+    <div class="team">Osaka engeniering</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Kenji_Miyazawa_29.webp" alt="">
+</a>		  
+
+	  	  	  	 <a href="Kyōka Izumi.html" class="team-card Osaka-engeniering card">
+  <div class="card-content">
+    <div class="name">Kyōka Izumi</div>
+    <div class="team">Osaka engeniering</div>
+    <div class="number">44</div>
+  </div>
+  <img class="driver-img" src="Kyoka_Izumi_29.webp" alt="">
+</a>	  
+
   </div>
 </div>
 </body>
