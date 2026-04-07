@@ -1402,9 +1402,9 @@ if (activeTab === "races" && selectedRace === "all") {
 if (activeTab === "races") {
 
   // 👉 KONKRETNY WYŚCIG
-  if (selectedRace !== "all") {
-
-    let raceResults = data[year].raceResults[selectedRace];
+let raceResults = data[year].raceResults 
+  ? data[year].raceResults[selectedRace] 
+  : null;
 
     html += `<tr>
       <th>Position</th>
