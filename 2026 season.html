@@ -1181,6 +1181,20 @@ const data = {
 	{ gp: "ABU DHABI", date: "12 DEC", winner: "Norris", team: "McLaren", laps: "5", time: "12" }
 	  
   ],
+	    // 🔥 NOWE
+    raceResults: {
+      "Australia": [
+        { pos: 1, name: "Norris", team: "McLaren", time: "1:32:10" },
+        { pos: 2, name: "Verstappen", team: "Red Bull", time: "+5.2s" },
+        { pos: 3, name: "Leclerc", team: "Ferrari", time: "+10.1s" }
+      ],
+      "Japan": [
+        { pos: 1, name: "Verstappen", team: "Red Bull", time: "1:30:00" },
+        { pos: 2, name: "Norris", team: "McLaren", time: "+3.0s" }
+      ]
+    }
+  }
+};
 
   drivers: [
     { pos: "1", name: "Norris", nationality: "GB", team: "McLaren", pts: 25, img: "https://via.placeholder.com/30" },
@@ -1380,14 +1394,45 @@ function render() {
   let html = `<div class="table-container"><table>`;
 
   // 🏁 RACES
-  if (activeTab === "races") {
+if (activeTab === "races" && selectedRace === "all") {
+  // filtr tylko dla ALL
+}
+
+  // 🔥 jeśli wybrano konkretny wyścig
+  if (selectedRace !== "all") {
+
+    let raceResults = data[year].raceResults[selectedRace];
+
+    html += `<tr>
+      <th>Position</th>
+      <th>Driver</th>
+      <th>Team</th>
+      <th>Time</th>
+    </tr>`;
+
+    if (raceResults) {
+      raceResults.forEach(r => {
+        html += `<tr>
+          <td>${r.pos}</td>
+          <td>${r.name}</td>
+          <td>${r.team}</td>
+          <td>${r.time}</td>
+        </tr>`;
+      });
+    } else {
+      html += `<tr><td colspan="4">No data</td></tr>`;
+    }
+
+  } else {
+
+    // 🔥 TWÓJ OBECNY WIDOK (bez zmian)
     html += `<tr>
       <th>Grand Prix</th>
       <th>Date</th>
       <th>Winner</th>
-	  <th>Team</th>
+      <th>Team</th>
       <th>Laps</th>
-	  <th>Time</th>
+      <th>Time</th>
     </tr>`;
 
     current.forEach(r => {
@@ -1396,11 +1441,13 @@ function render() {
         <td>${r.date}</td>
         <td>${r.winner}</td>
         <td>${r.team}</td>
-		<td>${r.laps}</td>
-		<td>${r.time}</td>
+        <td>${r.laps}</td>
+        <td>${r.time}</td>
       </tr>`;
     });
+
   }
+}
 
   // 🧑 DRIVERS
   if (activeTab === "drivers") {
