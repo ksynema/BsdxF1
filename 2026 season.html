@@ -1398,6 +1398,10 @@ if (activeTab === "races" && selectedRace === "all") {
 }
 
   // 🔥 jeśli wybrano konkretny wyścig
+ // 🏁 RACES
+if (activeTab === "races") {
+
+  // 👉 KONKRETNY WYŚCIG
   if (selectedRace !== "all") {
 
     let raceResults = data[year].raceResults[selectedRace];
@@ -1423,6 +1427,30 @@ if (activeTab === "races" && selectedRace === "all") {
     }
 
   } else {
+
+    // 👉 WSZYSTKIE WYŚCIGI
+    html += `<tr>
+      <th>Grand Prix</th>
+      <th>Date</th>
+      <th>Winner</th>
+      <th>Team</th>
+      <th>Laps</th>
+      <th>Time</th>
+    </tr>`;
+
+    current.forEach(r => {
+      html += `<tr>
+        <td>${r.gp}</td>
+        <td>${r.date}</td>
+        <td>${r.winner}</td>
+        <td>${r.team}</td>
+        <td>${r.laps}</td>
+        <td>${r.time}</td>
+      </tr>`;
+    });
+
+  }
+}
 
     // 🔥 TWÓJ OBECNY WIDOK (bez zmian)
     html += `<tr>
